@@ -38,4 +38,3 @@ jobs:
           password: ${{ secrets.CI_PROPOSAL_DEV }}
           local-dir: dist/
           protocol: ftps
-          server-dir: /sites/
