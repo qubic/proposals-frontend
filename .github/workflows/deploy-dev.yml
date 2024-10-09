@@ -36,4 +36,4 @@ jobs:
           server: ${{ secrets.FTP_HOST_DEV }}
           username: ${{ secrets.FTP_USERNAME_DEV }}
           password: ${{ secrets.CI_PROPOSAL_DEV }}
-          local-dir: ./build
+          local-dir: dist/
