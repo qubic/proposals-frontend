@@ -1,0 +1,19 @@
+{
+  "global": {
+    "unlock_wallet": "Unlock Wallet"
+  },
+  "home_page": {
+    "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",
+    "description": "The Qubic computor voting is used to reach a consensus on topics to be decided regarding the entire network. This can include accepting smart contracts or making other protocol decisions. Only computors are allowed to participate.",
+    "active_proposals": "Active Proposals",
+    "ended_proposals": "Ended Proposals"
+  },
+  "error_page": {
+    "page_not_found": "Page not found",
+    "error_404_message": "Congratulations! You are one of the elite who managed to find our 404 page.",
+    "back_to_home_page": "Back to homepage",
+    "title": "Oops!",
+    "unexpected_error": "Sorry, an unexpected error has occurred.",
+    "retry": "Retry"
+  }
+}
