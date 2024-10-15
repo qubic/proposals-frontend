@@ -10,7 +10,7 @@ export default function AppLayout() {
   return (
     <Suspense fallback={<AppLoader />}>
       <Header />
-      <main className="min-h-[var(--container-height)] w-full sm:min-h-[var(--desktop-container-height)]">
+      <main className="min-h-[var(--container-height)] w-full px-16 sm:min-h-[var(--desktop-container-height)]">
         <ErrorBoundary>
           <Suspense fallback={<LinearProgress />}>
             <Outlet />
