@@ -2,7 +2,7 @@ import { clsxTwMerge } from '@app/utils'
 
 type Variant = 'filled' | 'outlined' | 'text' | 'link'
 type Color = 'primary'
-type Size = 'sm' | 'md' | 'lg'
+type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 type Props<T extends React.ElementType = 'button'> = {
   children: React.ReactNode
@@ -14,17 +14,19 @@ type Props<T extends React.ElementType = 'button'> = {
 } & React.ComponentPropsWithoutRef<T>
 
 const sizeClasses = {
-  sm: 'px-24 py-8 text-xs',
-  md: 'px-28 py-10 text-sm',
-  lg: 'px-32 py-10 text-base'
+  xs: 'px-12 py-8 text-xs',
+  sm: 'px-16 py-8 text-sm',
+  md: 'px-24 py-12 text-base',
+  lg: 'px-28 py-14 text-lg'
 } as const
 
 const colorVariantClasses = {
   primary: {
-    filled: 'text-primary-80 bg-primary-30 hover:bg-primary-40 hover:text-primary-80',
-    outlined: 'text-primary-30 border border-primary-30 hover:bg-primary-60',
-    text: 'text-white hover:bg-primary-60',
-    link: 'text-primary-30 hover:text-primary-40 p-0 hover:underline'
+    filled: 'text-primary-80 bg-primary-30 hover:bg-primary-40 disabled:hover:bg-primary-30',
+    outlined:
+      'text-primary-30 border border-primary-30 hover:bg-primary-60 disabled:hover:bg-transparent',
+    text: 'text-primary-30 hover:bg-primary-60 disabled:hover:bg-transparent',
+    link: 'text-primary-30 hover:text-primary-40 p-0 hover:underline disabled:hover:text-primary-30'
   }
 } as const
 
@@ -44,7 +46,7 @@ export default function Button<T extends React.ElementType = 'button'>({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...restProps}
       className={clsxTwMerge(
-        'w-fit rounded-8 font-space font-medium transition duration-300',
+        'flex w-fit items-center justify-center gap-8 rounded-12 font-space font-medium transition duration-300 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-30',
         sizeClasses[size],
         colorVariantClasses[color][variant],
         className
