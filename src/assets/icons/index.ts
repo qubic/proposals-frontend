@@ -6,6 +6,11 @@ export { default as ExclamationTriangleIcon } from './exclamation-triangle.svg?r
 export { default as GlobeGrayIcon } from './globe-gray.svg?react'
 export { default as Infocon } from './info.svg?react'
 export { default as XmarkIcon } from './xmark.svg?react'
+export { default as PlusIcon } from './plus.svg?react'
+export { default as BitcoinIcon } from './bitcoin.svg?react'
+export { default as PresentIcon } from './present.svg?react'
+export { default as CoinsIcon } from './coins.svg?react'
+export { default as JsonIcon } from './json.svg?react'
 
 export * from './arrows'
 export * from './logo'
