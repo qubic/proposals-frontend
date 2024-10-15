@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { AppLayout } from '@app/components/ui/layouts'
-import { Error404Page, HomePage } from '@app/pages'
+import { CreateProposalPageLazy, Error404Page, HomePage } from '@app/pages'
 import { Routes } from './routes'
 
 const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
@@ -13,6 +13,10 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
+      },
+      {
+        path: Routes.PROPOSALS.CREATE,
+        element: <CreateProposalPageLazy />
       }
     ]
   },
