@@ -42,6 +42,33 @@ function copyText(textToCopy: string) {
   }
 }
 
+function pasteText(): Promise<string> {
+  return new Promise((resolve, reject) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      // Use the modern clipboard API if available and secure
+      navigator.clipboard.readText().then(
+        (text) => resolve(text),
+        (err) => reject(err)
+      )
+    } else {
+      // Fallback if clipboard API is not available
+      const input = document.createElement('textarea')
+      input.style.position = 'fixed'
+      input.style.left = '-9999px'
+      document.body.appendChild(input)
+      input.focus()
+      document.execCommand('paste')
+      const pastedText = input.value
+      document.body.removeChild(input)
+      if (pastedText) {
+        resolve(pastedText)
+      } else {
+        reject(new Error('Unable to paste from clipboard'))
+      }
+    }
+  })
+}
+
 export * from './date'
 export * from './styles'
-export { copyText, formatBase64, formatEllipsis, formatString }
+export { copyText, formatBase64, formatEllipsis, formatString, pasteText }
