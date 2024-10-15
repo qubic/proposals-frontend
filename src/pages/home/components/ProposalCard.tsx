@@ -11,7 +11,7 @@ export default function ProposalCard({ title, details }: Props) {
     <article className="max-w-[652px] space-y-24 rounded-12 border border-primary-60 bg-primary-70 p-24">
       <header className="flex flex-col justify-between gap-24 lg:flex-row lg:items-center">
         <h1>{title}</h1>
-        <Button variant="link" color="primary" as={Link} to="/something-to-test">
+        <Button variant="link" color="primary" as={Link} to="/something-to-test" size="sm">
           Learn more
         </Button>
       </header>
