@@ -5,7 +5,7 @@ import LanguagePicker from '../LanguagePicker'
 
 export default function Header() {
   return (
-    <header className="relative mx-auto flex items-center justify-center gap-6 border-b border-primary-60 p-20">
+    <header className="relative mx-auto flex h-[var(--header-height)] items-center justify-center gap-6 border-b border-primary-60 p-20 sm:h-[var(--desktop-header-height)]">
       <Link to={Routes.HOME}>
         <QubicProposalsWhiteLogo />
       </Link>
