@@ -18,7 +18,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="w-full pb-72 pt-120">
+    <div className="w-full pb-72 pt-60 lg:pt-120">
       <div className="mx-auto flex w-fit flex-1 flex-col gap-80 lg:flex-row">
         <section className="grid h-fit max-w-[416px] place-items-center gap-24 lg:place-items-start">
           <h1 className="text-center text-32 lg:text-start">
