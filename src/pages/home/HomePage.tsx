@@ -1,8 +1,11 @@
-import { Button } from '@app/components/ui/buttons'
+import { Button, ConnectWalletButton } from '@app/components/ui/buttons'
+import { useQubicWallet } from '@app/hooks'
+import { PrivateRoutes } from '@app/router'
 import { clsxTwMerge } from '@app/utils'
 import { PROPOSALS_MOCK } from '@app/utils/mocks'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { ProposalCard } from './components'
 
 const TABS = [{ i18nKey: 'active_proposals' }, { i18nKey: 'ended_proposals' }] as const
@@ -10,6 +13,7 @@ const TABS = [{ i18nKey: 'active_proposals' }, { i18nKey: 'ended_proposals' }] a
 type TabKey = (typeof TABS)[number]['i18nKey']
 
 export default function HomePage() {
+  const { isWalletConnected } = useQubicWallet()
   const [activeTab, setActiveTab] = useState<TabKey>(TABS[0].i18nKey)
   const { t } = useTranslation()
 
@@ -28,7 +32,13 @@ export default function HomePage() {
             />
           </h1>
           <p className="text-center text-gray-50 lg:text-start">{t('home_page.description')}</p>
-          <Button size="sm">{t('global.unlock_wallet')}</Button>
+          {isWalletConnected ? (
+            <Button as={Link} to={PrivateRoutes.PROPOSALS.CREATE}>
+              {t('home_page.create_proposal')}
+            </Button>
+          ) : (
+            <ConnectWalletButton size="sm" className="w-fit" />
+          )}
         </section>
         <section className="flex flex-col gap-16">
           <ul className="flex gap-x-20">
@@ -50,7 +60,11 @@ export default function HomePage() {
           <ul className="grid gap-24">
             {PROPOSALS_MOCK.map((proposal) => (
               <li key={proposal.id}>
-                <ProposalCard title={proposal.title} details={proposal.details} />
+                <ProposalCard
+                  title={proposal.title}
+                  details={proposal.details}
+                  submitText={t('home_page.submit_vote')}
+                />
               </li>
             ))}
           </ul>
