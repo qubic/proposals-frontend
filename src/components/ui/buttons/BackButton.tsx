@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from '@app/assets/icons'
-import { Routes } from '@app/router'
+import { PublicRoutes } from '@app/router'
 import { clsxTwMerge } from '@app/utils'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -18,7 +18,7 @@ export default function BackButton({
   children,
   disabled = false,
   ariaLabel = 'go back',
-  fallbackUrl = Routes.HOME
+  fallbackUrl = PublicRoutes.HOME
 }: Props) {
   const navigate = useNavigate()
   const location = useLocation()

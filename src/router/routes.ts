@@ -1,9 +1,10 @@
-export const Routes = {
+export const PublicRoutes = {
   HOME: '/',
-  PROPOSALS: {
-    CREATE: '/proposals/create'
-  },
   NOT_FOUND: '/404'
 } as const
 
-export default Routes
+export const PrivateRoutes = {
+  PROPOSALS: {
+    CREATE: '/proposals/create'
+  }
+} as const

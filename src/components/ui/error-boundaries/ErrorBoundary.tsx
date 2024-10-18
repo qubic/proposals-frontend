@@ -4,7 +4,7 @@ import { Component } from 'react'
 import { type WithTranslation, withTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-import { Routes } from '@app/router'
+import { PublicRoutes } from '@app/router'
 import { Button } from '../buttons'
 import ErrorDisplay from './ErrorDisplay'
 
@@ -69,7 +69,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
             {showGoHome && (
               <Button variant="filled">
-                <Link to={Routes.HOME} className="text-inherit">
+                <Link to={PublicRoutes.HOME} className="text-inherit">
                   {t('error_page.back_to_home_page')}
                 </Link>
               </Button>

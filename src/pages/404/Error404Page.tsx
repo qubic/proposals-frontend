@@ -6,13 +6,13 @@ import { Button } from '@app/components/ui/buttons'
 import { ErrorDisplay } from '@app/components/ui/error-boundaries'
 import { Header } from '@app/components/ui/layouts'
 import { AppLoader } from '@app/components/ui/loaders'
-import { Routes } from '@app/router'
+import { PublicRoutes } from '@app/router'
 
 function Error404Page() {
   const { t } = useTranslation()
   const error = useRouteError()
   const { pathname } = useLocation()
-  const isNotFound = pathname === Routes.NOT_FOUND
+  const isNotFound = pathname === PublicRoutes.NOT_FOUND
 
   const renderErrorDisplay = () => {
     if (isNotFound || (isRouteErrorResponse(error) && error?.status === 404)) {
@@ -34,7 +34,7 @@ function Error404Page() {
           {renderErrorDisplay()}
 
           <div className="mt-32 text-center md:mt-40">
-            <Button as={Link} size="lg" to={Routes.HOME}>
+            <Button as={Link} size="lg" to={PublicRoutes.HOME}>
               {t('error_page.back_to_home_page')}
             </Button>
           </div>
