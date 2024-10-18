@@ -1,12 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import { PrivateRoutesGuard } from '@app/components/guards'
 import { AppLayout } from '@app/components/ui/layouts'
 import { CreateProposalPageLazy, Error404Page, HomePage } from '@app/pages'
-import { Routes } from './routes'
+import { PrivateRoutes, PublicRoutes } from './routes'
 
 const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
   {
-    path: '/',
+    path: PublicRoutes.HOME,
     element: <AppLayout />,
     errorElement: <Error404Page />,
     children: [
@@ -15,13 +16,18 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: Routes.PROPOSALS.CREATE,
-        element: <CreateProposalPageLazy />
+        element: <PrivateRoutesGuard />,
+        children: [
+          {
+            path: PrivateRoutes.PROPOSALS.CREATE,
+            element: <CreateProposalPageLazy />
+          }
+        ]
       }
     ]
   },
   {
-    path: Routes.NOT_FOUND,
+    path: PublicRoutes.NOT_FOUND,
     element: <Error404Page />
   }
 ])
