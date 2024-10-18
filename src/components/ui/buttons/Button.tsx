@@ -4,7 +4,7 @@ type Variant = 'filled' | 'outlined' | 'text' | 'link'
 type Color = 'primary'
 type Size = 'xs' | 'sm' | 'md' | 'lg'
 
-type Props<T extends React.ElementType = 'button'> = {
+export type ButtonProps<T extends React.ElementType = 'button'> = {
   children: React.ReactNode
   variant?: Variant
   size?: Size
@@ -38,7 +38,7 @@ export default function Button<T extends React.ElementType = 'button'>({
   className,
   as,
   ...restProps
-}: Props<T>) {
+}: ButtonProps<T>) {
   const Component: React.ElementType = as || 'button'
 
   return (
@@ -46,7 +46,7 @@ export default function Button<T extends React.ElementType = 'button'>({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...restProps}
       className={clsxTwMerge(
-        'flex w-fit items-center justify-center gap-8 rounded-12 font-space font-medium transition duration-300 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-30',
+        'flex w-full items-center justify-center gap-8 rounded-12 font-space font-medium transition duration-300 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-30',
         sizeClasses[size],
         colorVariantClasses[color][variant],
         className
