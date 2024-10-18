@@ -8,7 +8,7 @@ type Size = 'xs' | 'sm' | 'md' | 'lg'
 type InputType = 'text' | 'email' | 'password' | 'number' | 'tel' | 'search'
 
 type Props<T extends React.ElementType = 'input'> = {
-  inputType?: InputType
+  type?: InputType
   placeholder?: string
   size?: Size
   color?: Color
@@ -17,7 +17,7 @@ type Props<T extends React.ElementType = 'input'> = {
   endIcon?: React.ReactNode
   error?: string
   as?: T
-} & Omit<React.ComponentPropsWithoutRef<T>, 'size'>
+} & Omit<React.ComponentPropsWithoutRef<T>, 'size' | 'type'>
 
 const sizeClasses = {
   xs: 'px-12 py-10 text-xs',
@@ -40,7 +40,7 @@ const colorVariantClasses = {
 const TextInput = forwardRef(
   <T extends React.ElementType = 'input'>(
     {
-      inputType = 'text',
+      type = 'text',
       placeholder = '',
       size = 'md',
       color = 'primary',
@@ -61,7 +61,7 @@ const TextInput = forwardRef(
           <Component
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...restProps}
-            type={inputType}
+            type={type}
             ref={ref} // Attach ref here
             placeholder={placeholder}
             className={clsxTwMerge(
