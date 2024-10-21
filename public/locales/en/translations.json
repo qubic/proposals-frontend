@@ -1,12 +1,23 @@
 {
   "global": {
-    "unlock_wallet": "Unlock Wallet"
+    "lock_wallet": "Lock Wallet",
+    "unlock_wallet": "Unlock Wallet",
+    "paste": "Paste",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "select_account": "Select Account",
+    "change_account": "Change Account",
+    "beta": "Beta",
+    "learn_more": "Learn More"
   },
   "home_page": {
     "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",
     "description": "The Qubic computor voting is used to reach a consensus on topics to be decided regarding the entire network. This can include accepting smart contracts or making other protocol decisions. Only computors are allowed to participate.",
+    "create_proposal": "Create Proposal",
     "active_proposals": "Active Proposals",
-    "ended_proposals": "Ended Proposals"
+    "ended_proposals": "Ended Proposals",
+    "submit_vote": "Submit Vote"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -49,5 +60,12 @@
         "min_title_length": "Vote option must be at least 1 character long"
       }
     }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Account Connected Successfully",
+    "copy_uri": "Copy URI",
+    "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
+    "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
+    "metamask_cooming_soon": "MetaMask (coming soon)"
   }
 }
