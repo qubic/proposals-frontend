@@ -1,5 +1,5 @@
 import { Button, ConnectWalletButton } from '@app/components/ui/buttons'
-import { useQubicWallet } from '@app/hooks'
+import { useWalletConnect } from '@app/hooks'
 import { PrivateRoutes } from '@app/router'
 import { clsxTwMerge } from '@app/utils'
 import { PROPOSALS_MOCK } from '@app/utils/mocks'
@@ -13,7 +13,7 @@ const TABS = [{ i18nKey: 'active_proposals' }, { i18nKey: 'ended_proposals' }] a
 type TabKey = (typeof TABS)[number]['i18nKey']
 
 export default function HomePage() {
-  const { isWalletConnected } = useQubicWallet()
+  const { isWalletConnected } = useWalletConnect()
   const [activeTab, setActiveTab] = useState<TabKey>(TABS[0].i18nKey)
   const { t } = useTranslation()
 

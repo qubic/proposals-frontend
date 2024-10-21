@@ -1,4 +1,4 @@
-import { useQubicWallet } from '@app/hooks'
+import { useWalletConnect } from '@app/hooks'
 import { PublicRoutes } from '@app/router'
 import type { ReactElement } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
@@ -10,7 +10,7 @@ interface PrivateRouteProps {
 export default function PrivateRoutesGuard({
   redirectTo = PublicRoutes.HOME
 }: PrivateRouteProps): ReactElement {
-  const { isWalletConnected } = useQubicWallet()
+  const { isWalletConnected } = useWalletConnect()
   const location = useLocation()
 
   if (!isWalletConnected && location.pathname !== redirectTo) {
