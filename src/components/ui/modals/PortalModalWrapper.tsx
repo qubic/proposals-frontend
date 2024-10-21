@@ -56,7 +56,7 @@ function ModalOverlayWrapper({
   )
 }
 
-export default function Modal({
+export default function PortalModalWrapper({
   id,
   isOpen,
   children,
@@ -86,6 +86,12 @@ export default function Modal({
     }
   }, [isOpen])
 
+  const modalRoot = document.getElementById('modal-root')
+
+  if (!modalRoot) {
+    throw new Error('Modal root element not found')
+  }
+
   return isOpen
     ? createPortal(
         <ModalOverlayWrapper
@@ -96,7 +102,7 @@ export default function Modal({
         >
           {children}
         </ModalOverlayWrapper>,
-        document.getElementById('modal-root') as HTMLElement
+        modalRoot
       )
     : null
 }

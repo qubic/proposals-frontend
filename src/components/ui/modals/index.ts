@@ -1,2 +1,2 @@
-export { default as ConnectWalletModal } from './ConnectWalletModal'
-export { default as Modal } from './Modal'
+// eslint-disable-next-line import/prefer-default-export
+export { default as PortalModalWrapper } from './PortalModalWrapper'
