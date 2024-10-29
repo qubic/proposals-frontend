@@ -4,11 +4,11 @@ import { QRCodeCanvas } from 'qrcode.react'
 import { useTranslation } from 'react-i18next'
 import { ModalStep } from './connect-wallet-modal.types'
 
-interface Props {
+type Props = Readonly<{
   wcUri: string | null
   loading: boolean
   onModalStepChange: (step: ModalStep) => void
-}
+}>
 
 function QrCodeSkeleton() {
   return (
@@ -37,7 +37,7 @@ export default function ConnectWalletStep({ wcUri, loading, onModalStepChange }:
     if (wcUri) {
       return (
         <>
-          <QRCodeCanvas value={wcUri} size={300} className="size-200 rounded" />
+          <QRCodeCanvas value={wcUri} size={300} className="size-200 rounded" marginSize={1} />
           <div>
             <CopyTextButton text={wcUri} className="text-sm">
               {t('connect_wallet_modal.copy_uri')}
