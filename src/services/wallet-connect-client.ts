@@ -12,7 +12,7 @@ enum WcLocalStorageKeys {
 }
 
 enum QubicNsMethods {
-  WALLET_REQUEST_ACCOUNTS = 'wallet_requestAccounts',
+  WALLET_REQUEST_ACCOUNTS = 'qubic_requestAccounts',
   QUBIC_SEND_QUBIC = 'qubic_sendQubic',
   QUBIC_SIGN_TRANSACTION = 'qubic_signTransaction',
   QUBIC_SIGN = 'qubic_sign'
