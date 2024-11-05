@@ -1,6 +1,8 @@
 import { BitcoinIcon, CoinsIcon, JsonIcon, PresentIcon } from '@app/assets/icons'
+import { useWalletConnect } from '@app/hooks'
 import { ProposalType } from '@app/types/enums'
 import { clsxTwMerge } from '@app/utils'
+import { useMemo } from 'react'
 import type { UseFormSetValue } from 'react-hook-form'
 import type { ProposalFormData } from '../../schemas/proposal.schema'
 
@@ -34,10 +36,30 @@ type Props = {
 }
 
 export default function ProposalTypeSelector({ selectedProposalType, setValue, t }: Props) {
+  const { isComputor } = useWalletConnect()
+  const isShareholder = false // TODO: Implement shareholder check on the wallet context
+
+  const availableProposalTypes = useMemo(() => {
+    const exclusions = new Set<ProposalType>()
+
+    if (!isComputor) {
+      exclusions.add(ProposalType.GENERAL_PROPOSAL)
+      exclusions.add(ProposalType.COMPUTOR_DONATION)
+    }
+
+    if (!isShareholder) {
+      exclusions.add(ProposalType.SHAREHOLDER_PROPOSAL)
+    }
+
+    return Object.values(PROPOSAL_TYPES).filter(
+      (proposalType) => !exclusions.has(proposalType.value)
+    )
+  }, [isComputor, isShareholder])
+
   return (
     <section>
-      <ul className="grid gap-16 lg:grid-flow-col">
-        {Object.values(PROPOSAL_TYPES).map((proposalType) => {
+      <ul className="grid gap-16 lg:auto-cols-min lg:grid-flow-col lg:place-content-center">
+        {availableProposalTypes.map((proposalType) => {
           const isSelected = selectedProposalType === proposalType.value
           return (
             <li
