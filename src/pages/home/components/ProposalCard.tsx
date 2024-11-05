@@ -41,7 +41,7 @@ export default function ProposalCard({ title, details, submitText = 'Submit' }: 
       {isWalletConnected && (
         <>
           <Select
-            label="Select"
+            label="Select Vote Option"
             className="!w-full"
             options={[
               { label: 'Mock Option 1', value: 'option-1' },
