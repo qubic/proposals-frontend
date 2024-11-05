@@ -1,6 +1,6 @@
 import type Client from '@walletconnect/sign-client'
 import { SignClient } from '@walletconnect/sign-client'
-import type { SessionTypes } from '@walletconnect/types'
+import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 import { z } from 'zod'
 
 import { envConfig } from '@app/configs'
@@ -33,6 +33,11 @@ const QubicAccountSchema = z.object({
 export type QubicAccount = z.infer<typeof QubicAccountSchema>
 
 const QubicAccountArraySchema = z.array(QubicAccountSchema)
+
+export type EventListener<E extends SignClientTypes.Event> = {
+  event: E
+  listener: (args: SignClientTypes.EventArguments[E]) => void
+}
 
 export class WalletConnectClient extends SignClient {
   private signClient: Client | null = null
@@ -108,7 +113,9 @@ export class WalletConnectClient extends SignClient {
     }
   }
 
-  public async initClient(): Promise<Client> {
+  public async initClient(
+    eventListeners: EventListener<SignClientTypes.Event>[] = []
+  ): Promise<Client> {
     this.log('Initializing Client...')
     try {
       this.signClient = await SignClient.init({
@@ -126,6 +133,12 @@ export class WalletConnectClient extends SignClient {
       }
 
       this.log('Client Initialized!')
+
+      if (eventListeners.length > 0) {
+        eventListeners.forEach(({ event, listener }) => {
+          this.signClient?.on(event, listener)
+        })
+      }
 
       return this.signClient
     } catch (error) {
