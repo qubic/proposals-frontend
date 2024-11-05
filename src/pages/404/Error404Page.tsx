@@ -34,7 +34,7 @@ function Error404Page() {
           {renderErrorDisplay()}
 
           <div className="mt-32 text-center md:mt-40">
-            <Button as={Link} size="lg" to={PublicRoutes.HOME}>
+            <Button as={Link} size="lg" to={PublicRoutes.HOME} className="w-fit">
               {t('error_page.back_to_home_page')}
             </Button>
           </div>

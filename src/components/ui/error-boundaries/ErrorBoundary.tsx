@@ -62,13 +62,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
           <div className="mb-20 mt-60 flex flex-col-reverse items-center gap-20 md:flex-row">
             {showRetry && (
-              <Button variant="outlined" onClick={this.handleRetry}>
+              <Button variant="outlined" className="w-fit" onClick={this.handleRetry}>
                 {t('error_page.retry')}
               </Button>
             )}
 
             {showGoHome && (
-              <Button variant="filled">
+              <Button variant="filled" className="w-fit">
                 <Link to={PublicRoutes.HOME} className="text-inherit">
                   {t('error_page.back_to_home_page')}
                 </Link>
