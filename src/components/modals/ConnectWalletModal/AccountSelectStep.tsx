@@ -46,7 +46,12 @@ export default function AccountSelectStep({
   return (
     <div className="flex max-w-[424px] flex-col place-content-between gap-16">
       <p>{t('global.select_account')}:</p>
-      <Select label="Select Account" onSelect={handleAccountSelection} options={selectOptions} />
+      <Select
+        label="Select Account"
+        onSelect={handleAccountSelection}
+        options={selectOptions}
+        defaultValue={selectOptions[0]}
+      />
       <div className="flex gap-8">
         <Button
           variant="outlined"
