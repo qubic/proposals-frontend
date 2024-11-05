@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function ProposalCard({ title, details, submitText = 'Submit' }: Props) {
-  const { isWalletConnected } = useWalletConnect()
+  const { isWalletConnected, isComputor } = useWalletConnect()
   const { t } = useTranslation()
 
   return (
@@ -38,7 +38,7 @@ export default function ProposalCard({ title, details, submitText = 'Submit' }: 
           </div>
         ))}
       </dl>
-      {isWalletConnected && (
+      {isWalletConnected && isComputor && (
         <>
           <Select
             label="Select Vote Option"
