@@ -27,7 +27,7 @@ export default function Select({
   showLabel = false,
   className
 }: Props) {
-  const [selected, setSelected] = useState(defaultValue || options[0])
+  const [selected, setSelected] = useState(defaultValue || { label, value: '' })
 
   const handleSelect = (option: Option) => {
     setSelected(option)
@@ -35,10 +35,11 @@ export default function Select({
   }
 
   useEffect(() => {
-    if (options) {
+    if (options && defaultValue) {
       setSelected((prev) => options.find((option) => option.value === prev.value) || options[0])
+      onSelect(selected)
     }
-  }, [options])
+  }, [defaultValue, onSelect, options, selected])
 
   return (
     <Listbox value={selected} onChange={handleSelect} name={name}>
@@ -52,7 +53,14 @@ export default function Select({
       </Label>
       <div className={clsxTwMerge('relative w-full font-space', className)}>
         <ListboxButton className="text-primary-800 relative w-full cursor-default rounded-md border border-primary-60 bg-primary-70 py-8 pl-12 pr-16 text-left text-sm shadow-sm hover:cursor-pointer hover:border-primary-50 focus:border-primary-50 focus:outline-none focus:ring-1 focus:ring-primary-50 active:ring-primary-50 sm:py-16 sm:pl-14 sm:pr-32 sm:text-base sm:leading-6">
-          <span className="block truncate leading-tight">{selected?.label}</span>
+          <span
+            className={clsxTwMerge(
+              'block truncate leading-tight',
+              selected.label === label && 'text-gray-50'
+            )}
+          >
+            {selected.label}
+          </span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-10">
             <ChevronDownIcon
               aria-hidden="true"
