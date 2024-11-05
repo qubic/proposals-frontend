@@ -1,7 +1,9 @@
-import type { SessionTypes } from '@walletconnect/types'
+import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 
-import { WalletConnectClient, type QubicAccount } from '@app/services/wallet-connect-client'
+import type { EventListener, QubicAccount } from '@app/services/wallet-connect-client'
+import { WalletConnectClient } from '@app/services/wallet-connect-client'
+import { useGetEpochComputorsQuery, useGetLatestStatsQuery } from '@app/store/apis/qubic-rpc.api'
 
 export interface IWalletConnectContext {
   walletClient: WalletConnectClient | null
@@ -14,6 +16,7 @@ export interface IWalletConnectContext {
   selectedAccount: QubicAccount | null
   setSelectedAccount: (account: QubicAccount | null) => void
   isWalletConnected: boolean
+  isComputor: boolean
 }
 
 export const WalletConnectContext = createContext<IWalletConnectContext | undefined>(undefined)
@@ -24,11 +27,15 @@ export function WalletConnectProvider({ children }: { children: React.ReactNode 
   const [loading, setLoading] = useState<boolean>(false)
   const [accounts, setAccounts] = useState<QubicAccount[]>([])
   const [selectedAccount, setSelectedAccount] = useState<QubicAccount | null>(null)
+  const [isComputor, setIsComputor] = useState<boolean>(false)
 
   const walletClient = useMemo(() => new WalletConnectClient(), [])
   const isWalletConnected = useMemo(() => !!session && accounts.length > 0, [session, accounts])
-  // TODO: Remove the console.log
-  console.log({ selectedAccount, isWalletConnected })
+
+  const { data: latestStats } = useGetLatestStatsQuery(undefined, { skip: !isWalletConnected })
+  const { data: computors } = useGetEpochComputorsQuery(latestStats?.epoch || 0, {
+    skip: !isWalletConnected || !latestStats
+  })
 
   const connect = useCallback(async () => {
     try {
@@ -76,67 +83,104 @@ export function WalletConnectProvider({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     const initWalletClient = async () => {
-      await walletClient.initClient()
+      // TODO: Check and remove not needed listeners
+      const eventListeners: EventListener<SignClientTypes.Event>[] = [
+        {
+          event: 'proposal_expire',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('proposal_expire', payload)
+          }
+        },
+        {
+          event: 'session_authenticate',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_authenticate', payload)
+          }
+        },
+        {
+          event: 'session_delete',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_delete', payload)
+          }
+        },
+        {
+          event: 'session_event',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_event', payload)
+          }
+        },
+        {
+          event: 'session_expire',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_expire', payload)
+            walletClient.clearSession('Session expired', payload)
+          }
+        },
+        {
+          event: 'session_extend',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_extend', payload)
+          }
+        },
+        {
+          event: 'session_ping',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_ping', payload)
+          }
+        },
+        {
+          event: 'session_proposal',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_proposal', payload)
+          }
+        },
+        {
+          event: 'session_request',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_request', payload)
+          }
+        },
+        {
+          event: 'session_request_expire',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_request_expire', payload)
+          }
+        },
+        {
+          event: 'session_request_sent',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_request_sent', payload)
+          }
+        },
+        {
+          event: 'session_update',
+          listener: (payload) => {
+            // eslint-disable-next-line no-console
+            console.log('session_update', payload)
+          }
+        }
+      ]
+
+      await walletClient.initClient(eventListeners)
 
       const restoredSession = await walletClient.restoreSession()
 
       if (restoredSession) {
         setSession(restoredSession)
         const requestedAccounts = await walletClient.requestAccounts()
-        // TODO: Remove the console.log
-        console.log({ requestedAccounts })
         setAccounts(requestedAccounts)
       }
-      // TODO: Check and remove the not needed listeners
-      walletClient.on('proposal_expire', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('proposal_expire', payload)
-      })
-      walletClient.on('session_authenticate', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_authenticate', payload)
-      })
-      walletClient.on('session_delete', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_delete', payload)
-      })
-      walletClient.on('session_event', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_event', payload)
-      })
-      walletClient.on('session_expire', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_expire', payload)
-        walletClient.clearSession('Session expired', payload)
-      })
-      walletClient.on('session_extend', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_extend', payload)
-      })
-      walletClient.on('session_ping', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_ping', payload)
-      })
-      walletClient.on('session_proposal', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_proposal', payload)
-      })
-      walletClient.on('session_request', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_request', payload)
-      })
-      walletClient.on('session_request_expire', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_request_expire', payload)
-      })
-      walletClient.on('session_request_sent', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('session_request_sent', payload)
-      })
-      walletClient.on('session_update', (payload) => {
-        // eslint-disable-next-line no-console
-        console.log('Ssession_update', payload)
-      })
     }
 
     initWalletClient()
@@ -157,6 +201,15 @@ export function WalletConnectProvider({ children }: { children: React.ReactNode 
     }
   }, [walletClient])
 
+  useEffect(() => {
+    if (computors && selectedAccount) {
+      const isUserComputor = computors.identities.includes(selectedAccount.address)
+      setIsComputor(isUserComputor)
+    } else {
+      setIsComputor(false)
+    }
+  }, [computors, selectedAccount])
+
   const contextValue = useMemo(
     () => ({
       walletClient,
@@ -168,7 +221,8 @@ export function WalletConnectProvider({ children }: { children: React.ReactNode 
       accounts,
       selectedAccount,
       setSelectedAccount,
-      isWalletConnected
+      isWalletConnected,
+      isComputor
     }),
     [
       walletClient,
@@ -179,7 +233,9 @@ export function WalletConnectProvider({ children }: { children: React.ReactNode 
       loading,
       accounts,
       selectedAccount,
-      isWalletConnected
+      setSelectedAccount,
+      isWalletConnected,
+      isComputor
     ]
   )
 
