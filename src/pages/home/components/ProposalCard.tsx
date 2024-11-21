@@ -1,44 +1,75 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-import { Select } from '@app/components/ui'
+import { GithubIcon, VotesListIcon } from '@app/assets/icons'
+import { Select, Skeleton, Tooltip } from '@app/components/ui'
 import { Button } from '@app/components/ui/buttons'
-import { useWalletConnect } from '@app/hooks'
+import { isVotingEnabled } from '@app/configs'
+import { useAppDispatch, useWalletConnect } from '@app/hooks'
+import type { Proposal } from '@app/store/apis/qli'
+import { ModalType, showModal } from '@app/store/modalSlice'
+import { formatDate } from '@app/utils'
 
-type Props = {
-  title: string
-  details: { label: string; value: string | number }[]
+type Props = Readonly<{
+  proposal: Proposal
   submitText?: string
-}
+}>
 
-export default function ProposalCard({ title, details, submitText = 'Submit' }: Props) {
+function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
   const { isWalletConnected, isComputor } = useWalletConnect()
   const { t } = useTranslation()
+  const dispatch = useAppDispatch()
+
+  const handleShowVotesListModal = () => {
+    dispatch(
+      showModal({ modalType: ModalType.VOTES_LIST, modalProps: { votes: proposal.ballots } })
+    )
+  }
 
   return (
     <article className="max-w-[652px] space-y-24 rounded-12 border border-primary-60 bg-primary-70 p-24">
-      <header className="flex flex-col justify-between gap-24 lg:flex-row lg:items-center">
-        <h1>{title}</h1>
-        <Button
-          variant="link"
-          color="primary"
-          as={Link}
-          to="/something-to-test"
-          size="sm"
-          className="w-fit"
-        >
-          {t('global.learn_more')}
-        </Button>
+      <header className="flex flex-col gap-12">
+        <div className="flex justify-between gap-24">
+          <h1>{proposal.title}</h1>
+          <div className="flex w-fit gap-24">
+            <Tooltip content={t('home_page.votes_list')}>
+              <Button variant="wrapper" onClick={handleShowVotesListModal}>
+                <VotesListIcon />
+              </Button>
+            </Tooltip>
+            <Tooltip content={t('home_page.votes_list')}>
+              <Link to={proposal.url}>
+                <GithubIcon />
+              </Link>
+            </Tooltip>
+          </div>
+        </div>
+        <div className="flex justify-between gap-24">
+          <p className="text-xs text-slate-500">
+            {formatDate(proposal.published)} @ {proposal.publishedTick}
+          </p>
+          <p className="text-end text-xs text-slate-500">
+            {t('home_page.last_vote', { tick: proposal.latestVoteTick })}
+          </p>
+        </div>
       </header>
       <dl className="grid grid-cols-2 gap-16 lg:grid-cols-3">
-        {details.map(({ label, value }) => (
-          <div key={label}>
-            <dt className="text-xs text-gray-50">{label}</dt>
-            <dd>{value}</dd>
+        {Object.entries(proposal.resultSummary).map(([voteOption, votesList]) => (
+          <div key={voteOption}>
+            <dt className="text-xs text-gray-50">
+              {t('home_page.vote_option', {
+                number: voteOption
+              })}
+            </dt>
+            <dd>
+              {t('home_page.votes_count', {
+                count: votesList.length
+              })}
+            </dd>
           </div>
         ))}
       </dl>
-      {isWalletConnected && isComputor && (
+      {isVotingEnabled && isWalletConnected && isComputor && (
         <>
           <Select
             label="Select Vote Option"
@@ -59,3 +90,9 @@ export default function ProposalCard({ title, details, submitText = 'Submit' }: 
     </article>
   )
 }
+
+ProposalCard.Skeleton = function ProposalCardSkeleton() {
+  return <Skeleton className="h-[183px] max-w-[652px] space-y-24 rounded-12 md:h-[167px]" />
+}
+
+export default ProposalCard

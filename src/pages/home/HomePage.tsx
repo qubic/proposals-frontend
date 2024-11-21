@@ -1,25 +1,37 @@
-import { Button, ConnectWalletButton } from '@app/components/ui/buttons'
-import { useWalletConnect } from '@app/hooks'
-import { PrivateRoutes } from '@app/router'
-import { clsxTwMerge } from '@app/utils'
-import { PROPOSALS_MOCK } from '@app/utils/mocks'
-import { useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { ProposalCard } from './components'
 
-const TABS = [{ i18nKey: 'active_proposals' }, { i18nKey: 'ended_proposals' }] as const
-
-type TabKey = (typeof TABS)[number]['i18nKey']
+import { Button, ConnectWalletButton } from '@app/components/ui/buttons'
+import { isConnectWalletEnabled } from '@app/configs'
+import { useWalletConnect } from '@app/hooks'
+import { PrivateRoutes } from '@app/router'
+import { useGetActiveProposalsQuery, useGetEndedProposalsQuery } from '@app/store/apis/qli'
+import { ProposalsList, ProposalsTabs } from './components'
+import type { TabKey } from './components/ProposalsTabs'
+import { PROPOSALS_TABS } from './constants'
 
 export default function HomePage() {
   const { isWalletConnected } = useWalletConnect()
-  const [activeTab, setActiveTab] = useState<TabKey>(TABS[0].i18nKey)
+  const [activeTab, setActiveTab] = useState<TabKey>(PROPOSALS_TABS[0].i18nKey)
   const { t } = useTranslation()
 
-  const handleOnTabClick = (tab: TabKey) => {
+  const isActiveProposalsTab = useMemo(() => activeTab === 'active_proposals', [activeTab])
+
+  const {
+    data: activeProposals,
+    isFetching: isActiveProposalsFetching,
+    isError: isActiveProposalsError
+  } = useGetActiveProposalsQuery()
+  const {
+    data: endedProposals,
+    isFetching: isEndedProposalsFetching,
+    isError: isEndedProposalsError
+  } = useGetEndedProposalsQuery(undefined, { skip: isActiveProposalsTab })
+
+  const handleOnTabClick = useCallback((tab: TabKey) => {
     setActiveTab(tab)
-  }
+  }, [])
 
   return (
     <div className="w-full pb-72 pt-60 lg:pt-120">
@@ -32,42 +44,29 @@ export default function HomePage() {
             />
           </h1>
           <p className="text-center text-gray-50 lg:text-start">{t('home_page.description')}</p>
-          {isWalletConnected ? (
-            <Button as={Link} to={PrivateRoutes.PROPOSALS.CREATE}>
-              {t('home_page.create_proposal')}
-            </Button>
-          ) : (
-            <ConnectWalletButton size="sm" className="w-fit" />
-          )}
+          {isConnectWalletEnabled &&
+            (isWalletConnected ? (
+              <Button as={Link} to={PrivateRoutes.PROPOSALS.CREATE}>
+                {t('home_page.create_proposal')}
+              </Button>
+            ) : (
+              <ConnectWalletButton size="sm" className="w-fit" />
+            ))}
         </section>
-        <section className="flex flex-col gap-16">
-          <ul className="flex gap-x-20">
-            {TABS.map((tab) => (
-              <li key={tab.i18nKey}>
-                <button
-                  type="button"
-                  onClick={() => handleOnTabClick(tab.i18nKey)}
-                  className={clsxTwMerge(
-                    'cursor-pointer text-20',
-                    activeTab === tab.i18nKey ? 'text-primary-30' : 'text-gray-50'
-                  )}
-                >
-                  {t(`home_page.${tab.i18nKey}`)}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <ul className="grid gap-24">
-            {PROPOSALS_MOCK.map((proposal) => (
-              <li key={proposal.id}>
-                <ProposalCard
-                  title={proposal.title}
-                  details={proposal.details}
-                  submitText={t('home_page.submit_vote')}
-                />
-              </li>
-            ))}
-          </ul>
+
+        <section className="flex flex-col gap-16 lg:w-screen lg:max-w-[652px]">
+          <ProposalsTabs activeTab={activeTab} onTabClick={handleOnTabClick} />
+          <ProposalsList
+            proposals={isActiveProposalsTab ? activeProposals : endedProposals}
+            isFetching={isActiveProposalsTab ? isActiveProposalsFetching : isEndedProposalsFetching}
+            isError={isActiveProposalsTab ? isActiveProposalsError : isEndedProposalsError}
+            noDataMessage={t(
+              isActiveProposalsTab
+                ? 'home_page.no_active_proposals'
+                : 'home_page.no_ended_proposals'
+            )}
+            errorMessage={t('home_page.error_fetching_proposals')}
+          />
         </section>
       </div>
     </div>

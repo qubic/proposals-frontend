@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as ProposalCard } from './ProposalCard'
+export { default as ProposalsList } from './ProposalsList'
+export { default as ProposalsTabs } from './ProposalsTabs'
