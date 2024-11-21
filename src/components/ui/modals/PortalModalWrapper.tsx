@@ -2,14 +2,14 @@ import { clsxTwMerge } from '@app/utils'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
-type ModalProps = {
+type ModalProps = Readonly<{
   id: string
   isOpen: boolean
   children: React.ReactNode
   className?: string
   closeOnOutsideClick?: boolean
   onClose?: () => void
-}
+}>
 
 function ModalOverlayWrapper({
   id,
@@ -17,7 +17,7 @@ function ModalOverlayWrapper({
   className,
   closeOnOutsideClick,
   onClose
-}: Omit<ModalProps, 'isOpen'>) {
+}: Readonly<Omit<ModalProps, 'isOpen'>>) {
   const modalWrapperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -43,8 +43,8 @@ function ModalOverlayWrapper({
     <>
       <div
         id={id}
-        className={clsxTwMerge('fixed inset-0 z-99 flex items-center justify-center', className)}
         role="dialog"
+        className={clsxTwMerge('fixed inset-0 z-99 flex items-center justify-center', className)}
         aria-labelledby={`${id}-title`}
         aria-modal="true"
         ref={modalWrapperRef}

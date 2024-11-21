@@ -1,14 +1,24 @@
+import type { VotesListModalProps } from '@app/components/modals/VotesListModal'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
+import type { RootState } from '@app/store'
+
 export enum ModalType {
   NONE = 'NONE',
-  CONNECT_WALLET = 'CONNECT_WALLET'
+  CONNECT_WALLET = 'CONNECT_WALLET',
+  VOTES_LIST = 'VOTES_LIST'
+}
+
+type ModalProps = {
+  [ModalType.VOTES_LIST]: VotesListModalProps
+  [ModalType.CONNECT_WALLET]: undefined
+  [ModalType.NONE]: undefined
 }
 
 export interface ModalState {
   modalType: ModalType
-  modalProps?: unknown
+  modalProps?: ModalProps[ModalType]
 }
 
 const initialState: ModalState = {
@@ -19,7 +29,10 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    showModal: (state, action: PayloadAction<{ modalType: ModalType; modalProps?: unknown }>) => {
+    showModal: <T extends ModalType>(
+      state: ModalState,
+      action: PayloadAction<{ modalType: T; modalProps?: ModalProps[T] }>
+    ) => {
       state.modalType = action.payload.modalType
       state.modalProps = action.payload.modalProps
     },
@@ -30,7 +43,7 @@ const modalSlice = createSlice({
   }
 })
 
-export const selectModalType = (state: { modal: ModalState }) => state.modal.modalType
+export const selectModal = (state: RootState) => state.modal
 
 export const { showModal, hideModal } = modalSlice.actions
 
