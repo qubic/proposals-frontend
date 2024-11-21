@@ -1,5 +1,6 @@
 type EnvConfig = {
   QUBIC_RPC_URL: string
+  QLI_API_URL: string
   WALLET_CONNECT_PROJECT_ID: string
   QUBIC_CHAIN_ID: string
   APP_TITLE: string
@@ -9,6 +10,7 @@ type EnvConfig = {
 
 export const envConfig: EnvConfig = {
   QUBIC_RPC_URL: import.meta.env.VITE_QUBIC_RPC_URL,
+  QLI_API_URL: import.meta.env.VITE_QLI_API_URL,
   // Wallet Connect Sign Client Config
   WALLET_CONNECT_PROJECT_ID: import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID,
   QUBIC_CHAIN_ID: import.meta.env.VITE_QUBIC_CHAIN_ID,
