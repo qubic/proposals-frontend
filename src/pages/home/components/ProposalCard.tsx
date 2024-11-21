@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
 
 import { GithubIcon, VotesListIcon } from '@app/assets/icons'
 import { Select, Skeleton, Tooltip } from '@app/components/ui'
@@ -37,10 +36,15 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
                 <VotesListIcon />
               </Button>
             </Tooltip>
-            <Tooltip content={t('home_page.votes_list')}>
-              <Link to={proposal.url}>
+            <Tooltip content={t('home_page.proposal_details')}>
+              <a
+                href={proposal.url}
+                aria-label="proposals-github-link"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <GithubIcon />
-              </Link>
+              </a>
             </Tooltip>
           </div>
         </div>
