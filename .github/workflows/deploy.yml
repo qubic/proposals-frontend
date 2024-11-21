@@ -30,6 +30,7 @@ jobs:
       - name: 🏗️ Build app
         env:
           VITE_QUBIC_RPC_URL: ${{ secrets.QUBIC_RPC_URL }}
+          VITE_QLI_API_URL: ${{ secrets.QLI_API_URL }}
           VITE_WALLET_CONNECT_PROJECT_ID: ${{ secrets.WALLET_CONNECT_PROJECT_ID }}
           VITE_QUBIC_CHAIN_ID: ${{ secrets.QUBIC_CHAIN_ID }}
           VITE_APP_TITLE: ${{ secrets.APP_TITLE }}
