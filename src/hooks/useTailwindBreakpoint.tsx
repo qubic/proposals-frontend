@@ -1,7 +1,7 @@
 import { theme } from '@app/theme'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-type Breakpoints = keyof typeof theme.breakpoints | null
+type Breakpoints = keyof typeof theme.breakpoints
 
 type Output = {
   activeBreakpoint: Breakpoints
@@ -22,7 +22,17 @@ const getMediaQueryLists = Object.entries(theme.breakpoints).reduce(
 )
 
 export default function useTailwindBreakpoint(): Output {
-  const [activeBreakpoint, setActiveBreakpoint] = useState<Breakpoints>(null)
+  const getCurrentBreakpoint = useCallback(
+    (): Breakpoints =>
+      (Object.entries(getMediaQueryLists)
+        .filter((mqlEntry) => mqlEntry[1].matches)
+        .map(([key]) => key)
+        .pop() as Breakpoints) || 'xxs',
+    []
+  )
+  const [activeBreakpoint, setActiveBreakpoint] = useState<Breakpoints>(() =>
+    getCurrentBreakpoint()
+  )
 
   const isMobile = useMemo(
     () => !activeBreakpoint || activeBreakpoint === 'xxs' || activeBreakpoint === 'xs',
@@ -30,18 +40,11 @@ export default function useTailwindBreakpoint(): Output {
   )
 
   const handleResize = useCallback(() => {
-    const matchedBreakpoint = Object.entries(getMediaQueryLists)
-      .filter((mqlEntry) => mqlEntry[1].matches)
-      .map(([key]) => key)
-      .pop()
-
-    setActiveBreakpoint((matchedBreakpoint as Breakpoints) || null)
-  }, [])
+    setActiveBreakpoint((getCurrentBreakpoint() as Breakpoints) || null)
+  }, [getCurrentBreakpoint])
 
   useEffect(() => {
-    handleResize() // Check on initial load
     window.addEventListener('resize', handleResize)
-
     return () => window.removeEventListener('resize', handleResize)
   }, [handleResize])
 
