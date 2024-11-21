@@ -10,11 +10,11 @@ export const qliApi = createApi({
       query: () => '/Auth/GetUser'
     }),
     getActiveProposals: build.query<Proposal[], void>({
-      query: () => '/Voting/Proposal?epoch=135'
+      query: () => '/Voting/Proposal'
     }),
     // TODO: Update endpoint once it's available
     getEndedProposals: build.query<Proposal[], void>({
-      query: () => '/Voting/Proposal?epoch=134'
+      query: () => '/Voting/Proposal?epoch=135'
     })
   })
 })
