@@ -32,7 +32,8 @@
     "src/**/*.tsx",
     "src/**/*.d.ts",
     "vite.config.ts",
-    "tailwind.config.ts"
+    "tailwind.config.ts",
+    "dev-proxy.config.ts"
   ],
   "exclude": ["node_modules"]
 }
