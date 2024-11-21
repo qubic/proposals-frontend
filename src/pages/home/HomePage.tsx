@@ -35,8 +35,8 @@ export default function HomePage() {
 
   return (
     <div className="w-full pb-72 pt-60 lg:pt-120">
-      <div className="mx-auto flex w-fit flex-1 flex-col gap-80 lg:flex-row">
-        <section className="grid h-fit max-w-[416px] place-items-center gap-24 lg:place-items-start">
+      <div className="mx-auto flex w-fit flex-1 flex-col justify-center gap-80 lg:flex-row">
+        <section className="mx-auto grid h-fit max-w-[416px] place-items-center gap-24 lg:place-items-start">
           <h1 className="text-center text-32 lg:text-start">
             <Trans
               i18nKey="home_page.title"
@@ -54,7 +54,7 @@ export default function HomePage() {
             ))}
         </section>
 
-        <section className="flex flex-col gap-16 lg:w-screen lg:max-w-[652px]">
+        <section className="flex flex-col gap-16 sm:w-screen sm:max-w-[530px] lg:max-w-[652px]">
           <ProposalsTabs activeTab={activeTab} onTabClick={handleOnTabClick} />
           <ProposalsList
             proposals={isActiveProposalsTab ? activeProposals : endedProposals}

@@ -96,7 +96,7 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
 }
 
 ProposalCard.Skeleton = function ProposalCardSkeleton() {
-  return <Skeleton className="h-[183px] max-w-[652px] space-y-24 rounded-12 md:h-[167px]" />
+  return <Skeleton className="h-[183px] w-full max-w-[652px] space-y-24 rounded-12 sm:h-[167px]" />
 }
 
 export default ProposalCard
