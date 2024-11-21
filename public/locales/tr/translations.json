@@ -1,0 +1,82 @@
+{
+  "global": {
+    "lock_wallet": "Cüzdanı Kilitle",
+    "unlock_wallet": "Cüzdanın Kilidini Aç",
+    "paste": "Yapıştır",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "confirm": "Onayla",
+    "select_account": "Hesap Seç",
+    "change_account": "Hesabı Değiştir",
+    "beta": "Beta",
+    "learn_more": "Daha Fazla Bilgi",
+    "tick": "Tik",
+    "addressId": "Adres Kimliği",
+    "option": "Seçenek"
+  },
+  "home_page": {
+    "title": "Qubic Ağı Kararları <bold>Bilgisayar Oylaması</bold>",
+    "description": "Qubic bilgisayar oylaması, tüm ağı ilgilendiren konular üzerinde fikir birliğine varmak için kullanılır. Buna akıllı sözleşmelerin kabul edilmesi veya diğer protokol kararlarının alınması dahil olabilir. Sadece bilgisayarlar katılabilir.",
+    "create_proposal": "Teklif Oluştur",
+    "active_proposals": "Aktif Teklifler",
+    "ended_proposals": "Sonlanan Teklifler",
+    "submit_vote": "Oyu Gönder",
+    "vote_option": "Seçenek {{number}}",
+    "votes_count": "{{count}} Oylar",
+    "votes_list": "Oy Listesi",
+    "proposal_details": "Teklif Detayları",
+    "last_vote": "Son oy Tik: {{tick}}",
+    "error_fetching_proposals": "Üzgünüz, teklifleri getirirken bir hata oluştu. Lütfen tekrar deneyin.",
+    "no_active_proposals": "Aktif teklif bulunamadı",
+    "no_ended_proposals": "Sonlanan teklif bulunamadı"
+  },
+  "error_page": {
+    "page_not_found": "Sayfa bulunamadı",
+    "error_404_message": "Tebrikler! 404 sayfamızı bulmayı başaran seçkinlerden birisiniz.",
+    "back_to_home_page": "Ana Sayfaya Dön",
+    "title": "Hata!",
+    "unexpected_error": "Üzgünüz, beklenmeyen bir hata oluştu.",
+    "retry": "Tekrar Dene"
+  },
+  "create_proposal_page": {
+    "title": "Teklif Oluştur",
+    "proposal_title": "Teklif Başlığı",
+    "proposal_title_description": "Teklifiniz için kısa ve açıklayıcı bir başlık sağlayın. Teklifin amacını net bir şekilde yansıttığından emin olun.",
+    "url": "URL",
+    "url_description": "Teklifinizle ilgili ayrıntılı bilgilerin bulunabileceği bir URL girin. Şu anda yalnızca GitHub bağlantılarına izin veriliyor.",
+    "vote_options": "Oylama Seçenekleri",
+    "vote_option": "Seçenek {{number}}",
+    "vote_options_description": "Kullanıcıların oylayabileceği seçenekler sağlayın. Her seçenek, teklif ile ilgili belirli bir sonuç veya kararı temsil etmelidir.",
+    "add_option": "Seçenek Ekle",
+    "submit_proposal": "Teklifi Gönder",
+    "submitting_proposal": "Teklif Gönderiliyor...",
+    "proposal_submitted": "Teklif Başarıyla Gönderildi",
+    "general_proposal": "Genel Teklif",
+    "computor_donation": "Bağış Teklifi",
+    "ccf_funding_proposal": "CCF Finansman Teklifi",
+    "shareholder_proposal": "Akıllı Sözleşme Teklifi",
+    "validation": {
+      "proposal_title": {
+        "required": "Teklif başlığı gereklidir",
+        "min_length": "Teklif başlığı en az 5 karakter olmalıdır"
+      },
+      "url": {
+        "required": "Teklif URL'si gereklidir",
+        "invalid": "Geçersiz URL",
+        "github_url": "Geçersiz URL formatı, yalnızca GitHub bağlantılarına izin verilir"
+      },
+      "vote_options": {
+        "required": "Oylama seçenekleri gereklidir",
+        "min_length": "En az 2 oylama seçeneği gereklidir",
+        "min_title_length": "Oylama seçeneği en az 1 karakter uzunluğunda olmalıdır"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Hesap Başarıyla Bağlandı",
+    "copy_uri": "URI'yi Kopyala",
+    "scan_qr": "Bu QR kodunu Qubic Cüzdanınız ile tarayın veya aşağıdaki bağlantıyı kopyalayın:",
+    "wallet_connection_gen_url_error": "WalletConnect URI'si oluşturulamadı. Lütfen tekrar deneyin.",
+    "metamask_cooming_soon": "MetaMask (yakında)"
+  }
+}

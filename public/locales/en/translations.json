@@ -9,7 +9,10 @@
     "select_account": "Select Account",
     "change_account": "Change Account",
     "beta": "Beta",
-    "learn_more": "Learn More"
+    "learn_more": "Learn More",
+    "tick": "Tick",
+    "addressId": "Address ID",
+    "option": "Option"
   },
   "home_page": {
     "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",
@@ -17,7 +20,15 @@
     "create_proposal": "Create Proposal",
     "active_proposals": "Active Proposals",
     "ended_proposals": "Ended Proposals",
-    "submit_vote": "Submit Vote"
+    "submit_vote": "Submit Vote",
+    "vote_option": "Option {{number}}",
+    "votes_count": "{{count}} Votes",
+    "votes_list": "Votes List",
+    "proposal_details": "Proposal Details",
+    "last_vote": "Last vote at Tick: {{tick}}",
+    "error_fetching_proposals": "Sorry, an error occurred while fetching proposals. Please try again.",
+    "no_active_proposals": "No active proposals found",
+    "no_ended_proposals": "No ended proposals found"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -32,7 +43,7 @@
     "proposal_title": "Proposal Title",
     "proposal_title_description": "Provide a short and descriptive title for your proposal. Make sure it clearly reflects the purpose of the proposal.",
     "url": "URL",
-    "url_description": "Enter a URL where detailed information about your proposal can be found. Currently, only GitHub link are allowed.",
+    "url_description": "Enter a URL where detailed information about your proposal can be found. Currently, only GitHub links are allowed.",
     "vote_options": "Vote Options",
     "vote_option": "Option {{number}}",
     "vote_options_description": "Provide the options for users to vote on. Each option should represent a distinct outcome or decision related to the proposal.",

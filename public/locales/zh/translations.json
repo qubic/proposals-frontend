@@ -1,0 +1,82 @@
+{
+  "global": {
+    "lock_wallet": "锁定钱包",
+    "unlock_wallet": "解锁钱包",
+    "paste": "粘贴",
+    "cancel": "取消",
+    "close": "关闭",
+    "confirm": "确认",
+    "select_account": "选择账户",
+    "change_account": "更换账户",
+    "beta": "测试版",
+    "learn_more": "了解更多",
+    "tick": "滴答",
+    "addressId": "地址ID",
+    "option": "选项"
+  },
+  "home_page": {
+    "title": "使用<bold>计算机投票</bold>的Qubic网络决策",
+    "description": "Qubic计算机投票用于就整个网络的决策主题达成共识。这可能包括接受智能合约或做出其他协议决策。只有计算机可以参与。",
+    "create_proposal": "创建提案",
+    "active_proposals": "活动提案",
+    "ended_proposals": "已结束提案",
+    "submit_vote": "提交投票",
+    "vote_option": "选项{{number}}",
+    "votes_count": "{{count}}票",
+    "votes_list": "投票列表",
+    "proposal_details": "提案详情",
+    "last_vote": "最后投票滴答：{{tick}}",
+    "error_fetching_proposals": "抱歉，获取提案时出错。请重试。",
+    "no_active_proposals": "未找到活动提案",
+    "no_ended_proposals": "未找到已结束提案"
+  },
+  "error_page": {
+    "page_not_found": "页面未找到",
+    "error_404_message": "恭喜！您是找到我们404页面的少数人之一。",
+    "back_to_home_page": "返回主页",
+    "title": "哎呀！",
+    "unexpected_error": "抱歉，发生了意外错误。",
+    "retry": "重试"
+  },
+  "create_proposal_page": {
+    "title": "创建提案",
+    "proposal_title": "提案标题",
+    "proposal_title_description": "为您的提案提供简短而描述性的标题。确保它清楚地反映提案的目的。",
+    "url": "URL",
+    "url_description": "输入可找到有关提案详细信息的URL。目前仅支持GitHub链接。",
+    "vote_options": "投票选项",
+    "vote_option": "选项{{number}}",
+    "vote_options_description": "提供用户可以投票的选项。每个选项应代表与提案相关的特定结果或决策。",
+    "add_option": "添加选项",
+    "submit_proposal": "提交提案",
+    "submitting_proposal": "提交提案中...",
+    "proposal_submitted": "提案提交成功",
+    "general_proposal": "一般提案",
+    "computor_donation": "捐赠提案",
+    "ccf_funding_proposal": "CCF资金提案",
+    "shareholder_proposal": "智能合约提案",
+    "validation": {
+      "proposal_title": {
+        "required": "提案标题是必需的",
+        "min_length": "提案标题必须至少5个字符"
+      },
+      "url": {
+        "required": "提案URL是必需的",
+        "invalid": "无效的URL",
+        "github_url": "无效的URL格式，仅支持GitHub链接"
+      },
+      "vote_options": {
+        "required": "投票选项是必需的",
+        "min_length": "至少需要2个投票选项",
+        "min_title_length": "投票选项必须至少1个字符"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "账户已成功连接",
+    "copy_uri": "复制URI",
+    "scan_qr": "使用您的Qubic钱包扫描此QR码或复制以下链接：",
+    "wallet_connection_gen_url_error": "生成WalletConnect URI失败。请重试。",
+    "metamask_cooming_soon": "MetaMask（即将推出）"
+  }
+}
