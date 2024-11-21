@@ -1,6 +1,6 @@
 import { clsxTwMerge } from '@app/utils'
 
-type Variant = 'filled' | 'outlined' | 'text' | 'link'
+type Variant = 'filled' | 'outlined' | 'text' | 'link' | 'wrapper'
 type Color = 'primary'
 type Size = 'xs' | 'sm' | 'md' | 'lg'
 
@@ -26,7 +26,8 @@ const colorVariantClasses = {
     outlined:
       'text-primary-30 border border-primary-30 hover:bg-primary-60 disabled:hover:bg-transparent',
     text: 'text-primary-30 hover:bg-primary-60 disabled:hover:bg-transparent',
-    link: 'text-primary-30 hover:text-primary-40 p-0 hover:underline disabled:hover:text-primary-30'
+    link: 'text-primary-30 hover:text-primary-40 p-0 hover:underline disabled:hover:text-primary-30',
+    wrapper: 'p-0'
   }
 } as const
 
