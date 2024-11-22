@@ -26,7 +26,7 @@ function ProposalsList({ isFetching, isError, proposals, noDataMessage, errorMes
   return (
     <ul className="grid gap-24">
       {proposals.map((proposal) => (
-        <li>
+        <li key={proposal.url}>
           <ProposalCard key={proposal.url} proposal={proposal} />
         </li>
       ))}
