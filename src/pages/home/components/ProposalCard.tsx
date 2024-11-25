@@ -97,6 +97,7 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
               { label: 'Mock Option 4', value: 'option-4' }
             ]}
             onSelect={(option) => {
+              // eslint-disable-next-line no-console
               console.log('Selected', option)
             }}
           />

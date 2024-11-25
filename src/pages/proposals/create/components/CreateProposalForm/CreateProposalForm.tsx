@@ -46,12 +46,14 @@ export default function CreateProposalForm() {
   const selectedProposalType = watch('proposalType')
 
   const onSubmit = useCallback(async (data: ProposalFormData) => {
+    // eslint-disable-next-line no-console
     console.log('Validated Data:', data)
     try {
       await new Promise<true>((resolve) => {
         setTimeout(() => resolve(true), 5000)
       })
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error)
     } finally {
       // setIsSubmitting(false)
@@ -87,6 +89,7 @@ export default function CreateProposalForm() {
     }
   }, [isSubmitSuccessful, reset])
 
+  // eslint-disable-next-line no-console
   console.log({ isSubmitting, isSubmitSuccessful, isSubmitted })
 
   return (
