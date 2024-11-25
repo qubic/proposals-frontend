@@ -28,7 +28,9 @@
     "last_vote": "最後の投票: Tick {{tick}}",
     "error_fetching_proposals": "提案の取得中にエラーが発生しました。もう一度お試しください。",
     "no_active_proposals": "アクティブな提案が見つかりません",
-    "no_ended_proposals": "終了した提案が見つかりません"
+    "no_ended_proposals": "終了した提案が見つかりません",
+    "no_votes": "まだ投票がありません",
+    "published_tick": "公開されたティック: {{tick}}"
   },
   "error_page": {
     "page_not_found": "ページが見つかりません",

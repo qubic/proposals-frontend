@@ -28,7 +28,9 @@
     "last_vote": "Dernier vote au Tick : {{tick}}",
     "error_fetching_proposals": "Désolé, une erreur s'est produite lors de la récupération des propositions. Veuillez réessayer.",
     "no_active_proposals": "Aucune proposition active trouvée",
-    "no_ended_proposals": "Aucune proposition terminée trouvée"
+    "no_ended_proposals": "Aucune proposition terminée trouvée",
+    "no_votes": "Pas encore de votes",
+    "published_tick": "Tick publié : {{tick}}"
   },
   "error_page": {
     "page_not_found": "Page non trouvée",

@@ -28,7 +28,9 @@
     "last_vote": "Son oy Tik: {{tick}}",
     "error_fetching_proposals": "Üzgünüz, teklifleri getirirken bir hata oluştu. Lütfen tekrar deneyin.",
     "no_active_proposals": "Aktif teklif bulunamadı",
-    "no_ended_proposals": "Sonlanan teklif bulunamadı"
+    "no_ended_proposals": "Sonlanan teklif bulunamadı",
+    "no_votes": "Henüz oy yok",
+    "published_tick": "Yayınlanan Tik: {{tick}}"
   },
   "error_page": {
     "page_not_found": "Sayfa bulunamadı",

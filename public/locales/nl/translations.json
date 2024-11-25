@@ -28,7 +28,9 @@
     "last_vote": "Laatste stem bij Tick: {{tick}}",
     "error_fetching_proposals": "Sorry, er is een fout opgetreden bij het ophalen van voorstellen. Probeer het opnieuw.",
     "no_active_proposals": "Geen actieve voorstellen gevonden",
-    "no_ended_proposals": "Geen afgesloten voorstellen gevonden"
+    "no_ended_proposals": "Geen afgesloten voorstellen gevonden",
+    "no_votes": "Nog geen stemmen",
+    "published_tick": "Gepubliceerde Tick: {{tick}}"
   },
   "error_page": {
     "page_not_found": "Pagina niet gevonden",

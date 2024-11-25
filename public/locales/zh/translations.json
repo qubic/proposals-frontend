@@ -28,7 +28,9 @@
     "last_vote": "最后投票滴答：{{tick}}",
     "error_fetching_proposals": "抱歉，获取提案时出错。请重试。",
     "no_active_proposals": "未找到活动提案",
-    "no_ended_proposals": "未找到已结束提案"
+    "no_ended_proposals": "未找到已结束提案",
+    "no_votes": "尚无投票",
+    "published_tick": "发布的滴答：{{tick}}"
   },
   "error_page": {
     "page_not_found": "页面未找到",

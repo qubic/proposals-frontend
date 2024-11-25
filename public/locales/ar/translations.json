@@ -28,7 +28,9 @@
     "last_vote": "آخر تصويت عند العلامة: {{tick}}",
     "error_fetching_proposals": "عذرًا، حدث خطأ أثناء جلب المقترحات. حاول مرة أخرى.",
     "no_active_proposals": "لم يتم العثور على مقترحات نشطة",
-    "no_ended_proposals": "لم يتم العثور على مقترحات منتهية"
+    "no_ended_proposals": "لم يتم العثور على مقترحات منتهية",
+    "no_votes": "لا توجد أصوات بعد",
+    "published_tick": "العلامة المنشورة: {{tick}}"
   },
   "error_page": {
     "page_not_found": "الصفحة غير موجودة",
