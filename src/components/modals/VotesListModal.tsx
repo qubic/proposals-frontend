@@ -6,6 +6,7 @@ import { PortalModalWrapper } from '@app/components/ui/modals'
 import { useAppDispatch, useTailwindBreakpoint } from '@app/hooks'
 import type { Vote } from '@app/store/apis/qli'
 import { hideModal } from '@app/store/modalSlice'
+import { formatString } from '@app/utils'
 import { ExplorerAddressLink } from '../ui'
 
 export type VotesListModalProps = Readonly<{
@@ -34,7 +35,7 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
 
     return votes.map((vote) => (
       <tr key={vote.computorId} className="border-b border-primary-60 text-sm">
-        <td className="px-8 py-16 text-center font-space sm:p-16">{vote.voteTick}</td>
+        <td className="px-8 py-16 text-center font-space sm:p-16">{formatString(vote.voteTick)}</td>
         <td className="px-8 py-16 sm:p-16">
           <ExplorerAddressLink address={vote.computorId} ellipsis={isMobile} />
         </td>
@@ -45,7 +46,7 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
 
   return (
     <PortalModalWrapper id="votes-list-modal" isOpen onClose={handleCloseModal} closeOnOutsideClick>
-      <div className="relative mx-16 flex h-full max-h-[80vh] max-w-[95vw] flex-col gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 sm:mx-0 md:w-[790px]">
+      <div className="relative mx-16 flex h-full max-h-[80vh] max-w-[95vw] flex-col gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 sm:mx-0 md:min-w-[790px]">
         <header className="flex justify-between">
           <h2>{t('home_page.votes_list')}</h2>
           <button
