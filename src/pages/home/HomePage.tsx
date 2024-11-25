@@ -57,7 +57,7 @@ export default function HomePage() {
         <section className="flex flex-col gap-16 sm:w-screen sm:max-w-[530px] lg:max-w-[652px]">
           <ProposalsTabs activeTab={activeTab} onTabClick={handleOnTabClick} />
           <ProposalsList
-            proposals={isActiveProposalsTab ? activeProposals : endedProposals}
+            proposals={isActiveProposalsTab ? activeProposals : endedProposals?.result}
             isFetching={isActiveProposalsTab ? isActiveProposalsFetching : isEndedProposalsFetching}
             isError={isActiveProposalsTab ? isActiveProposalsError : isEndedProposalsError}
             noDataMessage={t(
