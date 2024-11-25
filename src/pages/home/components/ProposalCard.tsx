@@ -57,15 +57,15 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
               {t('home_page.published_tick', { tick: formatString(proposal.publishedTick) })}
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-end gap-2">
+            <Badge size="xs" className="whitespace-nowrap text-center">
+              {proposal.contractName}
+            </Badge>
             <p className="text-end text-xs text-slate-500">
               {proposal.latestVoteTick > 0
                 ? t('home_page.last_vote', { tick: formatString(proposal.latestVoteTick) })
                 : t('home_page.no_votes')}
             </p>
-            <Badge size="xs" className="whitespace-nowrap text-center">
-              {proposal.contractName}
-            </Badge>
           </div>
         </div>
       </header>
