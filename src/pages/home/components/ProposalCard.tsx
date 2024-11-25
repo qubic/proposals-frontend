@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
 
 import { GithubIcon, VotesListIcon } from '@app/assets/icons'
-import { Select, Skeleton, Tooltip } from '@app/components/ui'
+import { Badge, Select, Skeleton, Tooltip } from '@app/components/ui'
 import { Button } from '@app/components/ui/buttons'
 import { isVotingEnabled } from '@app/configs'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import type { Proposal } from '@app/store/apis/qli'
 import { ModalType, showModal } from '@app/store/modalSlice'
-import { formatDate } from '@app/utils'
+import { formatDate, formatString } from '@app/utils'
 
 type Props = Readonly<{
   proposal: Proposal
@@ -49,12 +49,24 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
           </div>
         </div>
         <div className="flex justify-between gap-24">
-          <p className="text-xs text-slate-500">
-            {formatDate(proposal.published)} @ {proposal.publishedTick}
-          </p>
-          <p className="text-end text-xs text-slate-500">
-            {t('home_page.last_vote', { tick: proposal.latestVoteTick })}
-          </p>
+          <div>
+            <p className="text-xs text-slate-500">
+              {formatDate(proposal.published, { excludeTimeZone: true })}
+            </p>
+            <p className="text-xs text-slate-500">
+              {t('home_page.published_tick', { tick: formatString(proposal.publishedTick) })}
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <p className="text-end text-xs text-slate-500">
+              {proposal.latestVoteTick > 0
+                ? t('home_page.last_vote', { tick: formatString(proposal.latestVoteTick) })
+                : t('home_page.no_votes')}
+            </p>
+            <Badge size="xs" className="whitespace-nowrap text-center">
+              {proposal.contractName}
+            </Badge>
+          </div>
         </div>
       </header>
       <dl className="grid grid-cols-2 gap-16 lg:grid-cols-3">
