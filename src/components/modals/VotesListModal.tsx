@@ -26,7 +26,7 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
       return (
         <tr>
           <td colSpan={3} className="px-8 py-16 text-center text-gray-50">
-            {t('noVotes')}
+            {t('home_page.no_votes')}
           </td>
         </tr>
       )
@@ -45,7 +45,7 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
 
   return (
     <PortalModalWrapper id="votes-list-modal" isOpen onClose={handleCloseModal} closeOnOutsideClick>
-      <div className="relative mx-16 grid max-h-[80vh] w-fit max-w-[95vw] gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 sm:mx-0">
+      <div className="relative mx-16 flex h-full max-h-[80vh] max-w-[95vw] flex-col gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 sm:mx-0 md:w-[790px]">
         <header className="flex justify-between">
           <h2>{t('home_page.votes_list')}</h2>
           <button
@@ -57,7 +57,7 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
             <XmarkIcon className="size-20 text-gray-50" />
           </button>
         </header>
-        <div className="relative max-h-[65vh] w-fit overflow-x-scroll">
+        <div className="relative max-h-[65vh] w-full overflow-x-scroll">
           <table className="h-full w-full">
             <thead className="sticky top-0 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
               <tr>
