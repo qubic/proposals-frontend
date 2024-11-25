@@ -1,3 +1,12 @@
+export enum ProposalStatus {
+  DRAFT = 0,
+  PUBLISHING = 1,
+  PENDING = 2,
+  SUCCESS = 3,
+  FAILED = 4,
+  CANCELED = 5
+}
+
 export interface User {
   id: string
   name: string
@@ -15,30 +24,30 @@ export interface GetUserResponse {
 }
 
 export interface Vote {
-  computorIndex: number
   computorId: string
-  shortCode: string | null
   vote: number
   voteTick: number
-  proposalIndex: number
-  contractIndex: number
-  proposalTick: number
 }
 
 export interface Proposal {
   latestVoteTick: number
   reportCreated: string
-  status: number
+  status: ProposalStatus
   url: string
-  computorIndex: number
-  shortCode: string
-  computorId: string
-  isPublished: boolean
+  proposerIdentity: string // initiator/creator of the proposal
   totalVotes: number
   publishedTick: number
   published: string
+  contractIndex: number
+  contractName: string
+  proposalIndex: number
+  numberOfOptions: number
+  proposalType: number
+  proposalTick: number
+  epoch: number
   tickForPublish: number
   ballots: Vote[]
+  resultSummary: Record<string, Vote[]>
   mostVotes: number
   sumOption0: number
   sumOption1: number
@@ -49,11 +58,14 @@ export interface Proposal {
   sumOption6: number
   sumOption7: number
   title: string
-  description: string | null
-  options: string | null
+  description?: string | null
+  options?: string | null
   hasVotes: boolean
-  selectedOption: string | null
-  resultSummary: {
-    [key: string]: Vote[]
-  }
+}
+
+export interface GetEndedProposalsResponse {
+  count: number
+  page: number
+  pageSize: number
+  result: Proposal[]
 }
