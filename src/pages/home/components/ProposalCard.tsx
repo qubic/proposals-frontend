@@ -1,13 +1,23 @@
 import { useTranslation } from 'react-i18next'
 
-import { GithubIcon, VotesListIcon } from '@app/assets/icons'
+import { CheckCircleIcon, GithubIcon, VotesListIcon } from '@app/assets/icons'
 import { Badge, Select, Skeleton, Tooltip } from '@app/components/ui'
 import { Button } from '@app/components/ui/buttons'
 import { isVotingEnabled } from '@app/configs'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
-import type { Proposal } from '@app/store/apis/qli'
+import { ProposalStatus, type Proposal } from '@app/store/apis/qli'
 import { ModalType, showModal } from '@app/store/modalSlice'
 import { formatDate, formatString } from '@app/utils'
+import { useCallback, useMemo } from 'react'
+
+const getWinnerOption = (proposal: Proposal) => {
+  const sumOptions = Array.from(
+    { length: 8 },
+    (_, index) => proposal[`sumOption${index as 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7}`]
+  )
+
+  return sumOptions.findIndex((votes) => votes === proposal.mostVotes)
+}
 
 type Props = Readonly<{
   proposal: Proposal
@@ -24,6 +34,13 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
       showModal({ modalType: ModalType.VOTES_LIST, modalProps: { votes: proposal.ballots } })
     )
   }
+
+  const winnerOption = useMemo(() => getWinnerOption(proposal), [proposal])
+
+  const isWinningOption = useCallback(
+    (option: number) => proposal.status === ProposalStatus.SUCCESS && winnerOption === option,
+    [proposal, winnerOption]
+  )
 
   return (
     <article className="max-w-[652px] space-y-24 rounded-12 border border-primary-60 bg-primary-70 p-24">
@@ -77,7 +94,10 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
                 number: voteOption
               })}
             </dt>
-            <dd>
+            <dd className="flex items-center gap-2">
+              {isWinningOption(Number(voteOption)) && (
+                <CheckCircleIcon className="size-18 text-success-40" />
+              )}
               {t('home_page.votes_count', {
                 count: votesList.length
               })}
