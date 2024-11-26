@@ -58,9 +58,9 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
             <XmarkIcon className="size-20 text-gray-50" />
           </button>
         </header>
-        <div className="relative max-h-[65vh] w-full overflow-x-scroll">
+        <div className="relative w-full overflow-x-scroll">
           <table className="h-full w-full">
-            <thead className="sticky top-0 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
+            <thead className="sticky -top-2 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
               <tr>
                 <th className="p-16 text-center font-400">
                   <span className="text-gray-50">{t('global.tick')}</span>
