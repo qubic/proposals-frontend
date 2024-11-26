@@ -1,4 +1,5 @@
 import { clsxTwMerge } from '@app/utils'
+import type { TouchEvent } from 'react'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
@@ -39,6 +40,10 @@ function ModalOverlayWrapper({
     }
   }, [closeOnOutsideClick, onClose])
 
+  const stopTouchPropagation = (touchEvent: TouchEvent<HTMLDivElement>) => {
+    touchEvent.stopPropagation()
+  }
+
   return (
     <>
       <div
@@ -48,6 +53,7 @@ function ModalOverlayWrapper({
         aria-labelledby={`${id}-title`}
         aria-modal="true"
         ref={modalWrapperRef}
+        onTouchMove={stopTouchPropagation}
       >
         {children}
       </div>
@@ -65,24 +71,14 @@ export default function PortalModalWrapper({
   onClose
 }: ModalProps) {
   useEffect(() => {
-    const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault()
-    }
-
     if (isOpen) {
       // Disable scrolling on body (desktop)
       document.body.classList.add('overflow-hidden')
-
-      // Disable touch scrolling (mobile)
-      document.addEventListener('touchmove', handleTouchMove, { passive: false })
     }
 
     return () => {
       // Enable scrolling on body (desktop)
       document.body.classList.remove('overflow-hidden')
-
-      // Enable touch scrolling (mobile)
-      document.removeEventListener('touchmove', handleTouchMove)
     }
   }, [isOpen])
 
