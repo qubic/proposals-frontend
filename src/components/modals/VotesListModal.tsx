@@ -35,7 +35,9 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
 
     return votes.map((vote) => (
       <tr key={vote.computorId} className="border-b border-primary-60 text-sm">
-        <td className="px-8 py-16 text-center font-space sm:p-16">{formatString(vote.voteTick)}</td>
+        <td className="w-88 px-8 py-16 text-center font-space sm:p-16">
+          {formatString(vote.voteTick)}
+        </td>
         <td className="px-8 py-16 sm:p-16">
           <ExplorerAddressLink address={vote.computorId} ellipsis={isMobile} />
         </td>
@@ -46,7 +48,7 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
 
   return (
     <PortalModalWrapper id="votes-list-modal" isOpen onClose={handleCloseModal} closeOnOutsideClick>
-      <div className="relative mx-16 flex h-full max-h-[80vh] max-w-[95vw] flex-col gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 sm:mx-0 md:min-w-[790px]">
+      <div className="relative mx-16 flex h-full max-h-[80vh] max-w-[95vw] flex-col gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 md:min-w-[790px]">
         <header className="flex justify-between">
           <h2>{t('home_page.votes_list')}</h2>
           <button
@@ -58,23 +60,32 @@ export default function VotesListModal({ votes }: VotesListModalProps) {
             <XmarkIcon className="size-20 text-gray-50" />
           </button>
         </header>
-        <div className="relative w-full overflow-x-scroll">
-          <table className="h-full w-full">
-            <thead className="sticky -top-2 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
-              <tr>
-                <th className="p-16 text-center font-400">
-                  <span className="text-gray-50">{t('global.tick')}</span>
-                </th>
-                <th className="p-16 font-400">
-                  <span className="text-gray-50">{t('global.addressId')}</span>
-                </th>
-                <th className="p-16 text-right font-400">
-                  <span className="text-gray-50">{t('global.option')}</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="max-h-[65vh] w-full overflow-y-auto">{renderTableRows()}</tbody>
-          </table>
+        <div className="relative max-h-[75vh] w-full overflow-hidden">
+          {/* Table header */}
+          <div className="overflow-hidden">
+            <table className="w-full table-auto border-collapse">
+              <thead className="sticky top-0 bg-primary-70 font-space text-sm text-gray-50">
+                <tr>
+                  <th className="w-88 px-8 py-16 text-center font-400 sm:w-112">
+                    <span>{t('global.tick')}</span>
+                  </th>
+                  <th className="w-128 px-8 py-16 text-left font-400 md:w-max">
+                    <span>{t('global.addressId')}</span>
+                  </th>
+                  <th className="px-8 py-16 text-right font-400">
+                    <span>{t('global.option')}</span>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          {/* Table body with scrolling */}
+          <div className="max-h-[65vh] overflow-y-auto">
+            <table className="w-full table-auto border-collapse">
+              <tbody className="w-full">{renderTableRows()}</tbody>
+            </table>
+          </div>
         </div>
       </div>
     </PortalModalWrapper>
