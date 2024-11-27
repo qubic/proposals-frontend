@@ -1,0 +1,84 @@
+{
+  "global": {
+    "lock_wallet": "قفل المحفظة",
+    "unlock_wallet": "فتح المحفظة",
+    "paste": "لصق",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "select_account": "اختيار الحساب",
+    "change_account": "تغيير الحساب",
+    "beta": "بيتا",
+    "learn_more": "تعرف على المزيد",
+    "tick": "علامة",
+    "addressId": "معرف العنوان",
+    "option": "الخيار"
+  },
+  "home_page": {
+    "title": "قرارات شبكة Qubic مع <bold>تصويت الكومبيوتر</bold>",
+    "description": "يُستخدم تصويت الكومبيوتر للوصول إلى توافق في الآراء بشأن الموضوعات المتعلقة بالشبكة بأكملها. يمكن أن يشمل ذلك قبول العقود الذكية أو اتخاذ قرارات بروتوكول أخرى. يُسمح فقط للكومبيوترات بالمشاركة.",
+    "create_proposal": "إنشاء اقتراح",
+    "active_proposals": "المقترحات النشطة",
+    "ended_proposals": "المقترحات المنتهية",
+    "submit_vote": "إرسال التصويت",
+    "vote_option": "الخيار {{number}}",
+    "votes_count": "{{count}} تصويتات",
+    "votes_list": "قائمة التصويتات",
+    "proposal_details": "تفاصيل الاقتراح",
+    "last_vote": "آخر تصويت عند العلامة: {{tick}}",
+    "error_fetching_proposals": "عذرًا، حدث خطأ أثناء جلب المقترحات. حاول مرة أخرى.",
+    "no_active_proposals": "لم يتم العثور على مقترحات نشطة",
+    "no_ended_proposals": "لم يتم العثور على مقترحات منتهية",
+    "no_votes": "لا توجد أصوات بعد",
+    "published_tick": "العلامة المنشورة: {{tick}}"
+  },
+  "error_page": {
+    "page_not_found": "الصفحة غير موجودة",
+    "error_404_message": "تهانينا! أنت من النخبة الذين تمكنوا من العثور على صفحتنا 404.",
+    "back_to_home_page": "العودة إلى الصفحة الرئيسية",
+    "title": "عذرًا!",
+    "unexpected_error": "عذرًا، حدث خطأ غير متوقع.",
+    "retry": "إعادة المحاولة"
+  },
+  "create_proposal_page": {
+    "title": "إنشاء اقتراح",
+    "proposal_title": "عنوان الاقتراح",
+    "proposal_title_description": "قدم عنوانًا قصيرًا ووصفيًا للاقتراح الخاص بك. تأكد من أنه يعكس بوضوح الغرض من الاقتراح.",
+    "url": "رابط",
+    "url_description": "أدخل رابطًا حيث يمكن العثور على معلومات مفصلة حول اقتراحك. حاليًا، يتم قبول روابط GitHub فقط.",
+    "vote_options": "خيارات التصويت",
+    "vote_option": "الخيار {{number}}",
+    "vote_options_description": "قدم الخيارات ليصوت المستخدمون عليها. يجب أن يمثل كل خيار نتيجة أو قرارًا مميزًا مرتبطًا بالاقتراح.",
+    "add_option": "إضافة خيار",
+    "submit_proposal": "إرسال الاقتراح",
+    "submitting_proposal": "جاري إرسال الاقتراح...",
+    "proposal_submitted": "تم إرسال الاقتراح بنجاح",
+    "general_proposal": "اقتراح عام",
+    "computor_donation": "اقتراح تبرع",
+    "ccf_funding_proposal": "اقتراح تمويل CCF",
+    "shareholder_proposal": "اقتراح عقد ذكي",
+    "validation": {
+      "proposal_title": {
+        "required": "عنوان الاقتراح مطلوب",
+        "min_length": "يجب أن يكون عنوان الاقتراح لا يقل عن 5 أحرف"
+      },
+      "url": {
+        "required": "رابط الاقتراح مطلوب",
+        "invalid": "رابط غير صالح",
+        "github_url": "تنسيق الرابط غير صالح، يتم قبول روابط GitHub فقط"
+      },
+      "vote_options": {
+        "required": "خيارات التصويت مطلوبة",
+        "min_length": "مطلوب على الأقل خياران للتصويت",
+        "min_title_length": "يجب أن يكون خيار التصويت لا يقل عن حرف واحد"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "تم الاتصال بالحساب بنجاح",
+    "copy_uri": "نسخ URI",
+    "scan_qr": "امسح رمز الاستجابة السريعة هذا باستخدام محفظة Qubic الخاصة بك أو انسخ الرابط أدناه:",
+    "wallet_connection_gen_url_error": "فشل إنشاء URI WalletConnect. حاول مرة أخرى.",
+    "metamask_cooming_soon": "MetaMask (قريبًا)"
+  }
+}

@@ -1,0 +1,7 @@
+// eslint-disable-next-line import/prefer-default-export
+export enum ProposalType {
+  GENERAL_PROPOSAL = 'GENERAL_PROPOSAL',
+  COMPUTOR_DONATION = 'COMPUTOR_DONATION',
+  CCF_FUNDING_REQUEST = 'CCF_FUNDING_REQUEST',
+  SHAREHOLDER_PROPOSAL = 'SHAREHOLDER_PROPOSAL'
+}

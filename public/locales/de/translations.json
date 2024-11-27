@@ -1,0 +1,84 @@
+{
+  "global": {
+    "lock_wallet": "Brieftasche sperren",
+    "unlock_wallet": "Brieftasche entsperren",
+    "paste": "Einfügen",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "select_account": "Konto auswählen",
+    "change_account": "Konto wechseln",
+    "beta": "Beta",
+    "learn_more": "Mehr erfahren",
+    "tick": "Tick",
+    "addressId": "Adress-ID",
+    "option": "Option"
+  },
+  "home_page": {
+    "title": "Qubic-Netzwerkentscheidungen mit <bold>Computor-Abstimmung</bold>",
+    "description": "Die Computor-Abstimmung von Qubic wird verwendet, um einen Konsens über zu entscheidende Themen im gesamten Netzwerk zu erzielen. Dies kann die Annahme von Smart Contracts oder andere Protokollentscheidungen umfassen. Nur Computoren dürfen teilnehmen.",
+    "create_proposal": "Vorschlag erstellen",
+    "active_proposals": "Aktive Vorschläge",
+    "ended_proposals": "Beendete Vorschläge",
+    "submit_vote": "Abstimmung abgeben",
+    "vote_option": "Option {{number}}",
+    "votes_count": "{{count}} Stimmen",
+    "votes_list": "Stimmenliste",
+    "proposal_details": "Vorschlagsdetails",
+    "last_vote": "Letzte Abstimmung bei Tick: {{tick}}",
+    "error_fetching_proposals": "Entschuldigung, beim Abrufen der Vorschläge ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "no_active_proposals": "Keine aktiven Vorschläge gefunden",
+    "no_ended_proposals": "Keine beendeten Vorschläge gefunden",
+    "no_votes": "Noch keine Stimmen",
+    "published_tick": "Veröffentlichter Tick: {{tick}}"
+  },
+  "error_page": {
+    "page_not_found": "Seite nicht gefunden",
+    "error_404_message": "Herzlichen Glückwunsch! Sie gehören zu den wenigen, die unsere 404-Seite gefunden haben.",
+    "back_to_home_page": "Zurück zur Startseite",
+    "title": "Hoppla!",
+    "unexpected_error": "Entschuldigung, ein unerwarteter Fehler ist aufgetreten.",
+    "retry": "Erneut versuchen"
+  },
+  "create_proposal_page": {
+    "title": "Vorschlag erstellen",
+    "proposal_title": "Vorschlagstitel",
+    "proposal_title_description": "Geben Sie einen kurzen und beschreibenden Titel für Ihren Vorschlag an. Stellen Sie sicher, dass er den Zweck des Vorschlags klar widerspiegelt.",
+    "url": "URL",
+    "url_description": "Geben Sie eine URL ein, unter der detaillierte Informationen zu Ihrem Vorschlag zu finden sind. Derzeit sind nur GitHub-Links erlaubt.",
+    "vote_options": "Abstimmungsoptionen",
+    "vote_option": "Option {{number}}",
+    "vote_options_description": "Geben Sie die Optionen an, über die Benutzer abstimmen können. Jede Option sollte ein spezifisches Ergebnis oder eine Entscheidung darstellen, die mit dem Vorschlag verbunden ist.",
+    "add_option": "Option hinzufügen",
+    "submit_proposal": "Vorschlag einreichen",
+    "submitting_proposal": "Vorschlag wird eingereicht...",
+    "proposal_submitted": "Vorschlag erfolgreich eingereicht",
+    "general_proposal": "Allgemeiner Vorschlag",
+    "computor_donation": "Spendenvorschlag",
+    "ccf_funding_proposal": "CCF-Finanzierungsvorschlag",
+    "shareholder_proposal": "Smart Contract-Vorschlag",
+    "validation": {
+      "proposal_title": {
+        "required": "Vorschlagstitel ist erforderlich",
+        "min_length": "Vorschlagstitel muss mindestens 5 Zeichen lang sein"
+      },
+      "url": {
+        "required": "Vorschlags-URL ist erforderlich",
+        "invalid": "Ungültige URL",
+        "github_url": "Ungültiges URL-Format, nur GitHub-Links sind erlaubt"
+      },
+      "vote_options": {
+        "required": "Abstimmungsoptionen sind erforderlich",
+        "min_length": "Mindestens 2 Abstimmungsoptionen sind erforderlich",
+        "min_title_length": "Abstimmungsoption muss mindestens 1 Zeichen lang sein"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Konto erfolgreich verbunden",
+    "copy_uri": "URI kopieren",
+    "scan_qr": "Scannen Sie diesen QR-Code mit Ihrer Qubic Wallet oder kopieren Sie den untenstehenden Link:",
+    "wallet_connection_gen_url_error": "Fehler beim Generieren der WalletConnect-URI. Bitte versuchen Sie es erneut.",
+    "metamask_cooming_soon": "MetaMask (bald verfügbar)"
+  }
+}

@@ -1,0 +1,58 @@
+import React, { memo } from 'react'
+import { Link } from 'react-router-dom'
+
+import { QubicLogoShort } from '@app/assets/icons/logo'
+
+const footerTextClass = 'font-space text-xs text-white'
+
+interface FooterLinkProps {
+  label: string
+  to: string
+  isInternal: boolean
+}
+
+function FooterLink({ label, to, isInternal }: FooterLinkProps) {
+  if (isInternal) {
+    return (
+      <Link className={footerTextClass} to={to}>
+        {label}
+      </Link>
+    )
+  }
+  return (
+    <a href={to} className={footerTextClass} target="_blank" role="button" rel="noreferrer">
+      {label}
+    </a>
+  )
+}
+
+function Footer() {
+  const linkItems: FooterLinkProps[] = [
+    { label: 'Terms of Service', to: 'https://qubic.org/Terms-of-service', isInternal: false },
+    { label: 'Privacy Policy', to: 'https://qubic.org/Privacy-policy', isInternal: false }
+  ]
+
+  return (
+    <footer className="flex flex-col items-center justify-center gap-10 px-12 py-20 md:flex-row md:gap-32 md:py-40">
+      <div className="flex items-center gap-10">
+        <QubicLogoShort />
+        <p className="font-space text-xs text-gray-50">
+          {'\u00A9'} {new Date().getFullYear()} Qubic.
+        </p>
+      </div>
+      <div className="flex flex-wrap items-center justify-center gap-10">
+        {linkItems.map((item, index) => (
+          <React.Fragment key={item.label}>
+            <FooterLink label={item.label} to={item.to} isInternal={item.isInternal} />
+            {index < linkItems.length - 1 && <span className="text-gray-50">•</span>}
+          </React.Fragment>
+        ))}
+      </div>
+      <p className="font-space text-xs text-gray-50">Version {__APP_VERSION__}</p>
+    </footer>
+  )
+}
+
+const MemoizedFooter = memo(Footer)
+
+export default MemoizedFooter

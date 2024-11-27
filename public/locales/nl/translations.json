@@ -1,0 +1,84 @@
+{
+  "global": {
+    "lock_wallet": "Portemonnee vergrendelen",
+    "unlock_wallet": "Portemonnee ontgrendelen",
+    "paste": "Plakken",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "confirm": "Bevestigen",
+    "select_account": "Account selecteren",
+    "change_account": "Account wijzigen",
+    "beta": "Beta",
+    "learn_more": "Meer informatie",
+    "tick": "Tick",
+    "addressId": "Adres-ID",
+    "option": "Optie"
+  },
+  "home_page": {
+    "title": "Qubic-netwerkbeslissingen met <bold>Computor Voting</bold>",
+    "description": "De computor voting van Qubic wordt gebruikt om consensus te bereiken over onderwerpen die het hele netwerk aangaan. Dit kan het accepteren van smart contracts of andere protocolbeslissingen omvatten. Alleen computors mogen deelnemen.",
+    "create_proposal": "Voorstel maken",
+    "active_proposals": "Actieve voorstellen",
+    "ended_proposals": "Afgesloten voorstellen",
+    "submit_vote": "Stem indienen",
+    "vote_option": "Optie {{number}}",
+    "votes_count": "{{count}} stemmen",
+    "votes_list": "Stemlijst",
+    "proposal_details": "Voorsteldetails",
+    "last_vote": "Laatste stem bij Tick: {{tick}}",
+    "error_fetching_proposals": "Sorry, er is een fout opgetreden bij het ophalen van voorstellen. Probeer het opnieuw.",
+    "no_active_proposals": "Geen actieve voorstellen gevonden",
+    "no_ended_proposals": "Geen afgesloten voorstellen gevonden",
+    "no_votes": "Nog geen stemmen",
+    "published_tick": "Gepubliceerde Tick: {{tick}}"
+  },
+  "error_page": {
+    "page_not_found": "Pagina niet gevonden",
+    "error_404_message": "Gefeliciteerd! U bent een van de weinigen die onze 404-pagina heeft gevonden.",
+    "back_to_home_page": "Terug naar startpagina",
+    "title": "Oeps!",
+    "unexpected_error": "Sorry, er is een onverwachte fout opgetreden.",
+    "retry": "Opnieuw proberen"
+  },
+  "create_proposal_page": {
+    "title": "Voorstel maken",
+    "proposal_title": "Voorsteltitel",
+    "proposal_title_description": "Geef een korte en beschrijvende titel voor uw voorstel. Zorg ervoor dat het duidelijk het doel van het voorstel weergeeft.",
+    "url": "URL",
+    "url_description": "Voer een URL in waar gedetailleerde informatie over uw voorstel te vinden is. Momenteel worden alleen GitHub-links geaccepteerd.",
+    "vote_options": "Stemopties",
+    "vote_option": "Optie {{number}}",
+    "vote_options_description": "Geef de opties waar gebruikers op kunnen stemmen. Elke optie moet een specifieke uitkomst of beslissing vertegenwoordigen die verband houdt met het voorstel.",
+    "add_option": "Optie toevoegen",
+    "submit_proposal": "Voorstel indienen",
+    "submitting_proposal": "Voorstel wordt ingediend...",
+    "proposal_submitted": "Voorstel succesvol ingediend",
+    "general_proposal": "Algemeen voorstel",
+    "computor_donation": "Donatievoorstel",
+    "ccf_funding_proposal": "CCF-financieringsvoorstel",
+    "shareholder_proposal": "Smart contract voorstel",
+    "validation": {
+      "proposal_title": {
+        "required": "Voorsteltitel is verplicht",
+        "min_length": "Voorsteltitel moet minimaal 5 tekens lang zijn"
+      },
+      "url": {
+        "required": "Voorstel-URL is verplicht",
+        "invalid": "Ongeldige URL",
+        "github_url": "Ongeldig URL-formaat, alleen GitHub-links zijn toegestaan"
+      },
+      "vote_options": {
+        "required": "Stemopties zijn verplicht",
+        "min_length": "Minimaal 2 stemopties zijn vereist",
+        "min_title_length": "Stemoptie moet minimaal 1 teken lang zijn"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Account succesvol verbonden",
+    "copy_uri": "URI kopiëren",
+    "scan_qr": "Scan deze QR-code met uw Qubic Wallet of kopieer de onderstaande link:",
+    "wallet_connection_gen_url_error": "Fout bij het genereren van WalletConnect URI. Probeer het opnieuw.",
+    "metamask_cooming_soon": "MetaMask (binnenkort beschikbaar)"
+  }
+}
