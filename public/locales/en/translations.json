@@ -1,0 +1,84 @@
+{
+  "global": {
+    "lock_wallet": "Lock Wallet",
+    "unlock_wallet": "Unlock Wallet",
+    "paste": "Paste",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "select_account": "Select Account",
+    "change_account": "Change Account",
+    "beta": "Beta",
+    "learn_more": "Learn More",
+    "tick": "Tick",
+    "addressId": "Address ID",
+    "option": "Option"
+  },
+  "home_page": {
+    "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",
+    "description": "The Qubic computor voting is used to reach a consensus on topics to be decided regarding the entire network. This can include accepting smart contracts or making other protocol decisions. Only computors are allowed to participate.",
+    "create_proposal": "Create Proposal",
+    "active_proposals": "Active Proposals",
+    "ended_proposals": "Ended Proposals",
+    "submit_vote": "Submit Vote",
+    "vote_option": "Option {{number}}",
+    "votes_count": "{{count}} Votes",
+    "votes_list": "Votes List",
+    "proposal_details": "Proposal Details",
+    "last_vote": "Last vote at Tick: {{tick}}",
+    "error_fetching_proposals": "Sorry, an error occurred while fetching proposals. Please try again.",
+    "no_active_proposals": "No active proposals found",
+    "no_ended_proposals": "No ended proposals found",
+    "no_votes": "No votes yet",
+    "published_tick": "Published Tick: {{tick}}"
+  },
+  "error_page": {
+    "page_not_found": "Page not found",
+    "error_404_message": "Congratulations! You are one of the elite who managed to find our 404 page.",
+    "back_to_home_page": "Back to homepage",
+    "title": "Oops!",
+    "unexpected_error": "Sorry, an unexpected error has occurred.",
+    "retry": "Retry"
+  },
+  "create_proposal_page": {
+    "title": "Create Proposal",
+    "proposal_title": "Proposal Title",
+    "proposal_title_description": "Provide a short and descriptive title for your proposal. Make sure it clearly reflects the purpose of the proposal.",
+    "url": "URL",
+    "url_description": "Enter a URL where detailed information about your proposal can be found. Currently, only GitHub links are allowed.",
+    "vote_options": "Vote Options",
+    "vote_option": "Option {{number}}",
+    "vote_options_description": "Provide the options for users to vote on. Each option should represent a distinct outcome or decision related to the proposal.",
+    "add_option": "Add Option",
+    "submit_proposal": "Submit Proposal",
+    "submitting_proposal": "Submitting Proposal...",
+    "proposal_submitted": "Proposal Submitted Successfully",
+    "general_proposal": "General Proposal",
+    "computor_donation": "Donation Proposal",
+    "ccf_funding_proposal": "CCF Funding Proposal",
+    "shareholder_proposal": "Smart Contract Proposal",
+    "validation": {
+      "proposal_title": {
+        "required": "Proposal title is required",
+        "min_length": "Proposal title must be at least 5 characters long"
+      },
+      "url": {
+        "required": "Proposal URL is required",
+        "invalid": "Invalid URL",
+        "github_url": "Invalid URL format, only GitHub links are allowed"
+      },
+      "vote_options": {
+        "required": "Vote options are required",
+        "min_length": "At least 2 vote options are required",
+        "min_title_length": "Vote option must be at least 1 character long"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Account Connected Successfully",
+    "copy_uri": "Copy URI",
+    "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
+    "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
+    "metamask_cooming_soon": "MetaMask (coming soon)"
+  }
+}

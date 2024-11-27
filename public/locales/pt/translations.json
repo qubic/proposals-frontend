@@ -1,0 +1,84 @@
+{
+  "global": {
+    "lock_wallet": "Bloquear Carteira",
+    "unlock_wallet": "Desbloquear Carteira",
+    "paste": "Colar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "select_account": "Selecionar Conta",
+    "change_account": "Alterar Conta",
+    "beta": "Beta",
+    "learn_more": "Saiba Mais",
+    "tick": "Tick",
+    "addressId": "ID do Endereço",
+    "option": "Opção"
+  },
+  "home_page": {
+    "title": "Decisões da Rede Qubic com <bold>Votação Computor</bold>",
+    "description": "A votação computor do Qubic é usada para alcançar um consenso sobre tópicos relacionados a toda a rede. Isso pode incluir a aceitação de contratos inteligentes ou outras decisões de protocolo. Apenas computors podem participar.",
+    "create_proposal": "Criar Proposta",
+    "active_proposals": "Propostas Ativas",
+    "ended_proposals": "Propostas Encerradas",
+    "submit_vote": "Submeter Voto",
+    "vote_option": "Opção {{number}}",
+    "votes_count": "{{count}} votos",
+    "votes_list": "Lista de Votos",
+    "proposal_details": "Detalhes da Proposta",
+    "last_vote": "Último voto no Tick: {{tick}}",
+    "error_fetching_proposals": "Desculpe, ocorreu um erro ao buscar propostas. Por favor, tente novamente.",
+    "no_active_proposals": "Nenhuma proposta ativa encontrada",
+    "no_ended_proposals": "Nenhuma proposta encerrada encontrada",
+    "no_votes": "Ainda não há votos",
+    "published_tick": "Tick publicado: {{tick}}"
+  },
+  "error_page": {
+    "page_not_found": "Página não encontrada",
+    "error_404_message": "Parabéns! Você é um dos poucos que conseguiu encontrar nossa página 404.",
+    "back_to_home_page": "Voltar à página inicial",
+    "title": "Ops!",
+    "unexpected_error": "Desculpe, ocorreu um erro inesperado.",
+    "retry": "Tentar Novamente"
+  },
+  "create_proposal_page": {
+    "title": "Criar Proposta",
+    "proposal_title": "Título da Proposta",
+    "proposal_title_description": "Forneça um título curto e descritivo para sua proposta. Certifique-se de que reflete claramente o objetivo da proposta.",
+    "url": "URL",
+    "url_description": "Insira um URL onde informações detalhadas sobre sua proposta possam ser encontradas. Atualmente, apenas links do GitHub são permitidos.",
+    "vote_options": "Opções de Voto",
+    "vote_option": "Opção {{number}}",
+    "vote_options_description": "Forneça as opções para os usuários votarem. Cada opção deve representar um resultado ou decisão distinta relacionada à proposta.",
+    "add_option": "Adicionar Opção",
+    "submit_proposal": "Submeter Proposta",
+    "submitting_proposal": "Submetendo Proposta...",
+    "proposal_submitted": "Proposta Submetida com Sucesso",
+    "general_proposal": "Proposta Geral",
+    "computor_donation": "Proposta de Doação",
+    "ccf_funding_proposal": "Proposta de Financiamento CCF",
+    "shareholder_proposal": "Proposta de Contrato Inteligente",
+    "validation": {
+      "proposal_title": {
+        "required": "O título da proposta é obrigatório",
+        "min_length": "O título da proposta deve ter pelo menos 5 caracteres"
+      },
+      "url": {
+        "required": "A URL da proposta é obrigatória",
+        "invalid": "URL inválida",
+        "github_url": "Formato de URL inválido, apenas links do GitHub são permitidos"
+      },
+      "vote_options": {
+        "required": "As opções de voto são obrigatórias",
+        "min_length": "Pelo menos 2 opções de voto são necessárias",
+        "min_title_length": "A opção de voto deve ter pelo menos 1 caractere"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Conta Conectada com Sucesso",
+    "copy_uri": "Copiar URI",
+    "scan_qr": "Digitalize este código QR com sua Carteira Qubic ou copie o link abaixo:",
+    "wallet_connection_gen_url_error": "Falha ao gerar URI WalletConnect. Por favor, tente novamente.",
+    "metamask_cooming_soon": "MetaMask (em breve)"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "global": {
+    "lock_wallet": "Bloquear cartera",
+    "unlock_wallet": "Desbloquear cartera",
+    "paste": "Pegar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "select_account": "Seleccionar cuenta",
+    "change_account": "Cambiar cuenta",
+    "beta": "Beta",
+    "learn_more": "Saber más",
+    "tick": "Tick",
+    "addressId": "ID de dirección",
+    "option": "Opción"
+  },
+  "home_page": {
+    "title": "Decisiones de la red Qubic con <bold>votación Computor</bold>",
+    "description": "La votación computor de Qubic se utiliza para alcanzar un consenso sobre temas relacionados con toda la red. Esto puede incluir la aceptación de contratos inteligentes u otras decisiones de protocolo. Solo se permite la participación de computores.",
+    "create_proposal": "Crear propuesta",
+    "active_proposals": "Propuestas activas",
+    "ended_proposals": "Propuestas finalizadas",
+    "submit_vote": "Enviar voto",
+    "vote_option": "Opción {{number}}",
+    "votes_count": "{{count}} votos",
+    "votes_list": "Lista de votos",
+    "proposal_details": "Detalles de la propuesta",
+    "last_vote": "Último voto en Tick: {{tick}}",
+    "error_fetching_proposals": "Lo sentimos, ocurrió un error al obtener las propuestas. Por favor, inténtelo de nuevo.",
+    "no_active_proposals": "No se encontraron propuestas activas",
+    "no_ended_proposals": "No se encontraron propuestas finalizadas",
+    "no_votes": "Aún no hay votos",
+    "published_tick": "Tick publicado: {{tick}}"
+  },
+  "error_page": {
+    "page_not_found": "Página no encontrada",
+    "error_404_message": "¡Felicidades! Eres uno de los pocos que logró encontrar nuestra página 404.",
+    "back_to_home_page": "Volver a la página de inicio",
+    "title": "¡Ups!",
+    "unexpected_error": "Lo sentimos, ocurrió un error inesperado.",
+    "retry": "Reintentar"
+  },
+  "create_proposal_page": {
+    "title": "Crear propuesta",
+    "proposal_title": "Título de la propuesta",
+    "proposal_title_description": "Proporcione un título breve y descriptivo para su propuesta. Asegúrese de que refleje claramente el propósito de la propuesta.",
+    "url": "URL",
+    "url_description": "Introduzca una URL donde se pueda encontrar información detallada sobre su propuesta. Actualmente, solo se permiten enlaces de GitHub.",
+    "vote_options": "Opciones de voto",
+    "vote_option": "Opción {{number}}",
+    "vote_options_description": "Proporcione las opciones para que los usuarios voten. Cada opción debe representar un resultado o decisión distinta relacionada con la propuesta.",
+    "add_option": "Añadir opción",
+    "submit_proposal": "Enviar propuesta",
+    "submitting_proposal": "Enviando propuesta...",
+    "proposal_submitted": "Propuesta enviada con éxito",
+    "general_proposal": "Propuesta general",
+    "computor_donation": "Propuesta de donación",
+    "ccf_funding_proposal": "Propuesta de financiamiento de CCF",
+    "shareholder_proposal": "Propuesta de contrato inteligente",
+    "validation": {
+      "proposal_title": {
+        "required": "El título de la propuesta es obligatorio",
+        "min_length": "El título de la propuesta debe tener al menos 5 caracteres"
+      },
+      "url": {
+        "required": "La URL de la propuesta es obligatoria",
+        "invalid": "URL inválida",
+        "github_url": "Formato de URL inválido, solo se permiten enlaces de GitHub"
+      },
+      "vote_options": {
+        "required": "Se requieren opciones de voto",
+        "min_length": "Se requieren al menos 2 opciones de voto",
+        "min_title_length": "La opción de voto debe tener al menos 1 carácter"
+      }
+    }
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Cuenta conectada con éxito",
+    "copy_uri": "Copiar URI",
+    "scan_qr": "Escanee este código QR con su cartera Qubic o copie el enlace a continuación:",
+    "wallet_connection_gen_url_error": "Error al generar el URI de WalletConnect. Por favor, inténtelo de nuevo.",
+    "metamask_cooming_soon": "MetaMask (próximamente)"
+  }
+}
