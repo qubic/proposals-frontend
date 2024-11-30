@@ -12,7 +12,11 @@
     "learn_more": "Learn More",
     "tick": "Tick",
     "addressId": "Address ID",
-    "option": "Option"
+    "option": "Option",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "voting": "Voting",
+    "epoch": "Epoch"
   },
   "home_page": {
     "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",

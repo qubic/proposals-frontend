@@ -12,7 +12,11 @@
     "learn_more": "Daha Fazla Bilgi",
     "tick": "Tik",
     "addressId": "Adres Kimliği",
-    "option": "Seçenek"
+    "option": "Seçenek",
+    "approved": "Onaylandı",
+    "rejected": "Reddedildi",
+    "voting": "Oylama",
+    "epoch": "Çağ"
   },
   "home_page": {
     "title": "Qubic Ağı Kararları <bold>Bilgisayar Oylaması</bold>",

@@ -12,7 +12,11 @@
     "learn_more": "了解更多",
     "tick": "滴答",
     "addressId": "地址ID",
-    "option": "选项"
+    "option": "选项",
+    "approved": "已批准",
+    "rejected": "已拒绝",
+    "voting": "投票中",
+    "epoch": "纪元"
   },
   "home_page": {
     "title": "使用<bold>计算机投票</bold>的Qubic网络决策",

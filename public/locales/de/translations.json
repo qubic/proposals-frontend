@@ -12,7 +12,11 @@
     "learn_more": "Mehr erfahren",
     "tick": "Tick",
     "addressId": "Adress-ID",
-    "option": "Option"
+    "option": "Option",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "voting": "Abstimmung",
+    "epoch": "Epoche"
   },
   "home_page": {
     "title": "Qubic-Netzwerkentscheidungen mit <bold>Computor-Abstimmung</bold>",

@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { CheckCircleIcon, GithubIcon, VotesListIcon } from '@app/assets/icons'
@@ -8,7 +9,7 @@ import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import { ProposalStatus, type Proposal } from '@app/store/apis/qli'
 import { ModalType, showModal } from '@app/store/modalSlice'
 import { formatDate, formatString } from '@app/utils'
-import { useCallback, useMemo } from 'react'
+import ProposalStatusBadge from './ProposalStatusBadge'
 
 const getWinnerOption = (proposal: Proposal) => {
   const sumOptions = Array.from(
@@ -29,11 +30,11 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
 
-  const handleShowVotesListModal = () => {
+  const handleShowVotesListModal = useCallback(() => {
     dispatch(
       showModal({ modalType: ModalType.VOTES_LIST, modalProps: { votes: proposal.ballots } })
     )
-  }
+  }, [dispatch, proposal.ballots])
 
   const winnerOption = useMemo(() => getWinnerOption(proposal), [proposal])
 
@@ -43,10 +44,10 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
   )
 
   return (
-    <article className="max-w-[652px] space-y-24 rounded-12 border border-primary-60 bg-primary-70 p-24">
+    <article className="max-w-[652px] space-y-20 rounded-12 border border-primary-60 bg-primary-70 p-24">
       <header className="flex flex-col gap-12">
-        <div className="flex justify-between gap-24">
-          <h1>{proposal.title}</h1>
+        <div className="flex items-center justify-between gap-24">
+          <h1 className="">{proposal.title}</h1>
           <div className="flex w-fit gap-24">
             <Tooltip content={t('home_page.votes_list')}>
               <Button variant="wrapper" onClick={handleShowVotesListModal}>
@@ -65,24 +66,25 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
             </Tooltip>
           </div>
         </div>
-        <div className="flex justify-between gap-24">
-          <div>
-            <p className="text-xs text-slate-500">
+        <div className="flex flex-col-reverse justify-between gap-8">
+          <div className="flex flex-wrap justify-between gap-8 text-center">
+            <p className="text-xxs text-slate-500 sm:text-xs">
               {formatDate(proposal.published, { excludeTimeZone: true })}
             </p>
-            <p className="text-xs text-slate-500">
+            <p className="text-xxs text-slate-500 sm:text-xs">
               {t('home_page.published_tick', { tick: formatString(proposal.publishedTick) })}
             </p>
-          </div>
-          <div className="flex flex-col items-end gap-2">
-            <Badge size="xs" className="whitespace-nowrap text-center">
-              {proposal.contractName}
-            </Badge>
-            <p className="text-end text-xs text-slate-500">
+            <p className="text-xxs text-slate-500 sm:text-xs">
               {proposal.latestVoteTick > 0
                 ? t('home_page.last_vote', { tick: formatString(proposal.latestVoteTick) })
                 : t('home_page.no_votes')}
             </p>
+          </div>
+          <div className="flex justify-between gap-8">
+            <Badge size="xs" className="whitespace-nowrap text-center">
+              {proposal.contractName}
+            </Badge>
+            <ProposalStatusBadge status={proposal.status} />
           </div>
         </div>
       </header>

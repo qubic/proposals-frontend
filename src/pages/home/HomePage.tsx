@@ -1,6 +1,6 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 import { Button, ConnectWalletButton } from '@app/components/ui/buttons'
 import { isConnectWalletEnabled } from '@app/configs'
@@ -13,10 +13,15 @@ import { PROPOSALS_TABS } from './constants'
 
 export default function HomePage() {
   const { isWalletConnected } = useWalletConnect()
-  const [activeTab, setActiveTab] = useState<TabKey>(PROPOSALS_TABS[0].i18nKey)
   const { t } = useTranslation()
+  const [searchParams, setSearchParams] = useSearchParams()
 
-  const isActiveProposalsTab = useMemo(() => activeTab === 'active_proposals', [activeTab])
+  const proposalStatus = (searchParams.get('status') as TabKey) || PROPOSALS_TABS[0].i18nKey
+
+  const isActiveProposalsTab = useMemo(
+    () => proposalStatus === 'active_proposals',
+    [proposalStatus]
+  )
 
   const {
     data: activeProposals,
@@ -29,9 +34,18 @@ export default function HomePage() {
     isError: isEndedProposalsError
   } = useGetEndedProposalsQuery(undefined, { skip: isActiveProposalsTab })
 
-  const handleOnTabClick = useCallback((tab: TabKey) => {
-    setActiveTab(tab)
-  }, [])
+  const handleOnTabClick = useCallback(
+    (tab: TabKey) => {
+      setSearchParams({ status: tab })
+    },
+    [setSearchParams]
+  )
+
+  useEffect(() => {
+    if (!searchParams.has('status')) {
+      setSearchParams({ status: PROPOSALS_TABS[0].i18nKey }, { replace: true })
+    }
+  }, [isActiveProposalsTab, endedProposals, searchParams, setSearchParams])
 
   return (
     <div className="w-full pb-72 pt-60 lg:pt-120">
@@ -55,7 +69,7 @@ export default function HomePage() {
         </section>
 
         <section className="flex flex-col gap-16 sm:w-screen sm:max-w-[530px] lg:max-w-[652px]">
-          <ProposalsTabs activeTab={activeTab} onTabClick={handleOnTabClick} />
+          <ProposalsTabs activeTab={proposalStatus} onTabClick={handleOnTabClick} />
           <ProposalsList
             proposals={isActiveProposalsTab ? activeProposals : endedProposals?.result}
             isFetching={isActiveProposalsTab ? isActiveProposalsFetching : isEndedProposalsFetching}

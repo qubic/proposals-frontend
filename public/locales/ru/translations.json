@@ -12,7 +12,11 @@
     "learn_more": "Узнать больше",
     "tick": "Тик",
     "addressId": "ID адреса",
-    "option": "Опция"
+    "option": "Опция",
+    "approved": "Одобрено",
+    "rejected": "Отклонено",
+    "voting": "Голосование",
+    "epoch": "Эпоха"
   },
   "home_page": {
     "title": "Решения сети Qubic с <bold>голосованием Computor</bold>",

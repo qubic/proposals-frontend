@@ -12,7 +12,11 @@
     "learn_more": "تعرف على المزيد",
     "tick": "علامة",
     "addressId": "معرف العنوان",
-    "option": "الخيار"
+    "option": "الخيار",
+    "approved": "موافَق عليه",
+    "rejected": "مرفوض",
+    "voting": "التصويت",
+    "epoch": "عصر"
   },
   "home_page": {
     "title": "قرارات شبكة Qubic مع <bold>تصويت الكومبيوتر</bold>",

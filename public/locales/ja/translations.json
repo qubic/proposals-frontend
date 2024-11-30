@@ -12,7 +12,11 @@
     "learn_more": "もっと知る",
     "tick": "ティック",
     "addressId": "アドレスID",
-    "option": "オプション"
+    "option": "オプション",
+    "approved": "承認済み",
+    "rejected": "拒否されました",
+    "voting": "投票中",
+    "epoch": "エポック"
   },
   "home_page": {
     "title": "Qubicネットワークの意思決定 <bold>コンピュータ投票</bold>",

@@ -12,7 +12,11 @@
     "learn_more": "Meer informatie",
     "tick": "Tick",
     "addressId": "Adres-ID",
-    "option": "Optie"
+    "option": "Optie",
+    "approved": "Goedgekeurd",
+    "rejected": "Afgewezen",
+    "voting": "Stemmen",
+    "epoch": "Epoche"
   },
   "home_page": {
     "title": "Qubic-netwerkbeslissingen met <bold>Computor Voting</bold>",

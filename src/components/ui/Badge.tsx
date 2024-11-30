@@ -1,13 +1,13 @@
 import { clsxTwMerge } from '@app/utils'
 
 type Variant = 'filled' | 'outlined'
-type Color = 'primary' | 'success' | 'warning' | 'error'
+export type BadgeColor = 'primary' | 'success' | 'warning' | 'error'
 type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 type Props<T extends React.ElementType = 'span'> = {
   children: React.ReactNode
   variant?: Variant
-  color?: Color
+  color?: BadgeColor
   size?: Size
   className?: string
   as?: T

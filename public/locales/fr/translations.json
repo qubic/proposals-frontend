@@ -12,7 +12,11 @@
     "learn_more": "En savoir plus",
     "tick": "Tick",
     "addressId": "ID d'adresse",
-    "option": "Option"
+    "option": "Option",
+    "approved": "Approuvé",
+    "rejected": "Rejeté",
+    "voting": "Vote",
+    "epoch": "Époque"
   },
   "home_page": {
     "title": "Décisions du réseau Qubic avec <bold>vote Computor</bold>",
