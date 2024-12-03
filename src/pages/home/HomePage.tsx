@@ -6,7 +6,11 @@ import { Button, ConnectWalletButton } from '@app/components/ui/buttons'
 import { isConnectWalletEnabled } from '@app/configs'
 import { useWalletConnect } from '@app/hooks'
 import { PrivateRoutes } from '@app/router'
-import { useGetActiveProposalsQuery, useGetEndedProposalsQuery } from '@app/store/apis/qli'
+import {
+  useGetActiveProposalsQuery,
+  useGetEndedProposalsQuery,
+  useGetPeersQuery
+} from '@app/store/apis/qli'
 import { ProposalsList, ProposalsTabs } from './components'
 import type { TabKey } from './components/ProposalsTabs'
 import { PROPOSALS_TABS } from './constants'
@@ -23,16 +27,9 @@ export default function HomePage() {
     [proposalStatus]
   )
 
-  const {
-    data: activeProposals,
-    isFetching: isActiveProposalsFetching,
-    isError: isActiveProposalsError
-  } = useGetActiveProposalsQuery()
-  const {
-    data: endedProposals,
-    isFetching: isEndedProposalsFetching,
-    isError: isEndedProposalsError
-  } = useGetEndedProposalsQuery(undefined, { skip: isActiveProposalsTab })
+  const activeProposals = useGetActiveProposalsQuery()
+  const endedProposals = useGetEndedProposalsQuery(undefined, { skip: isActiveProposalsTab })
+  const peers = useGetPeersQuery()
 
   const handleOnTabClick = useCallback(
     (tab: TabKey) => {
@@ -45,7 +42,7 @@ export default function HomePage() {
     if (!searchParams.has('status')) {
       setSearchParams({ status: PROPOSALS_TABS[0].i18nKey }, { replace: true })
     }
-  }, [isActiveProposalsTab, endedProposals, searchParams, setSearchParams])
+  }, [isActiveProposalsTab, endedProposals.data, searchParams, setSearchParams])
 
   return (
     <div className="w-full pb-72 pt-60 lg:pt-120">
@@ -71,15 +68,18 @@ export default function HomePage() {
         <section className="flex flex-col gap-16 sm:w-screen sm:max-w-[530px] lg:max-w-[652px]">
           <ProposalsTabs activeTab={proposalStatus} onTabClick={handleOnTabClick} />
           <ProposalsList
-            proposals={isActiveProposalsTab ? activeProposals : endedProposals?.result}
-            isFetching={isActiveProposalsTab ? isActiveProposalsFetching : isEndedProposalsFetching}
-            isError={isActiveProposalsTab ? isActiveProposalsError : isEndedProposalsError}
+            proposals={isActiveProposalsTab ? activeProposals.data : endedProposals.data?.result}
+            isFetching={
+              isActiveProposalsTab ? activeProposals.isFetching : endedProposals.isFetching
+            }
+            isError={isActiveProposalsTab ? activeProposals.isError : endedProposals.isError}
             noDataMessage={t(
               isActiveProposalsTab
                 ? 'home_page.no_active_proposals'
                 : 'home_page.no_ended_proposals'
             )}
             errorMessage={t('home_page.error_fetching_proposals')}
+            peers={peers.data ?? []}
           />
         </section>
       </div>
