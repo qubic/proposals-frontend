@@ -5,7 +5,7 @@ type Props = {
 
 export default function Tooltip({ children, content }: Props) {
   return (
-    <div className="group relative">
+    <div className="group relative h-fit">
       <div>{children}</div>
       <div className="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 transform group-hover:block">
         <div className="w-max max-w-[50vw] break-words rounded-8 bg-primary-60 px-8 py-6 text-xxs text-white xs:text-xs md:max-w-512">
