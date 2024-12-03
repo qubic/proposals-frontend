@@ -1,36 +1,50 @@
 {
   "global": {
-    "lock_wallet": "Brieftasche sperren",
-    "unlock_wallet": "Brieftasche entsperren",
+    "lock_wallet": "Wallet sperren",
+    "unlock_wallet": "Wallet entsperren",
     "paste": "Einfügen",
     "cancel": "Abbrechen",
+    "cancelled": "Abgebrochen",
     "close": "Schließen",
     "confirm": "Bestätigen",
     "select_account": "Konto auswählen",
-    "change_account": "Konto wechseln",
+    "change_account": "Konto ändern",
     "beta": "Beta",
     "learn_more": "Mehr erfahren",
     "tick": "Tick",
     "addressId": "Adress-ID",
-    "option": "Option"
+    "option": "Option",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "voting": "Abstimmung",
+    "epoch": "Epoche",
+    "options": "Optionen",
+    "notes": "Notizen"
   },
   "home_page": {
-    "title": "Qubic-Netzwerkentscheidungen mit <bold>Computor-Abstimmung</bold>",
-    "description": "Die Computor-Abstimmung von Qubic wird verwendet, um einen Konsens über zu entscheidende Themen im gesamten Netzwerk zu erzielen. Dies kann die Annahme von Smart Contracts oder andere Protokollentscheidungen umfassen. Nur Computoren dürfen teilnehmen.",
+    "title": "Entscheidungen im Qubic-Netzwerk mit <bold>Computor-Abstimmung</bold>",
+    "description": "Die Computor-Abstimmung von Qubic wird verwendet, um einen Konsens zu Themen zu erzielen, die das gesamte Netzwerk betreffen. Dazu gehört die Annahme von Smart Contracts oder andere Protokollentscheidungen. Nur Computoren dürfen teilnehmen.",
     "create_proposal": "Vorschlag erstellen",
     "active_proposals": "Aktive Vorschläge",
     "ended_proposals": "Beendete Vorschläge",
-    "submit_vote": "Abstimmung abgeben",
+    "submit_vote": "Abstimmung einreichen",
     "vote_option": "Option {{number}}",
     "votes_count": "{{count}} Stimmen",
     "votes_list": "Stimmenliste",
     "proposal_details": "Vorschlagsdetails",
-    "last_vote": "Letzte Abstimmung bei Tick: {{tick}}",
+    "proposal_specification": "Vorschlagsspezifikation",
+    "last_vote": "Letzte Stimme bei Tick",
     "error_fetching_proposals": "Entschuldigung, beim Abrufen der Vorschläge ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
     "no_active_proposals": "Keine aktiven Vorschläge gefunden",
     "no_ended_proposals": "Keine beendeten Vorschläge gefunden",
     "no_votes": "Noch keine Stimmen",
-    "published_tick": "Veröffentlichter Tick: {{tick}}"
+    "published_tick": "Veröffentlicht bei Tick",
+    "proposer": "Vorschlaggeber",
+    "proposal_type": "Vorschlagstyp",
+    "vote_instructions_title": "Um Ihre Stimme abzugeben, verwenden Sie bitte den folgenden Befehl im Qubic CLI.",
+    "total_votes": "Gesamtstimmen",
+    "contract_name": "Vertragsname",
+    "proposal_index": "Vorschlagsindex"
   },
   "error_page": {
     "page_not_found": "Seite nicht gefunden",
@@ -48,7 +62,7 @@
     "url_description": "Geben Sie eine URL ein, unter der detaillierte Informationen zu Ihrem Vorschlag zu finden sind. Derzeit sind nur GitHub-Links erlaubt.",
     "vote_options": "Abstimmungsoptionen",
     "vote_option": "Option {{number}}",
-    "vote_options_description": "Geben Sie die Optionen an, über die Benutzer abstimmen können. Jede Option sollte ein spezifisches Ergebnis oder eine Entscheidung darstellen, die mit dem Vorschlag verbunden ist.",
+    "vote_options_description": "Geben Sie die Optionen an, über die die Benutzer abstimmen können. Jede Option sollte ein eindeutiges Ergebnis oder eine Entscheidung im Zusammenhang mit dem Vorschlag darstellen.",
     "add_option": "Option hinzufügen",
     "submit_proposal": "Vorschlag einreichen",
     "submitting_proposal": "Vorschlag wird eingereicht...",
@@ -60,7 +74,7 @@
     "validation": {
       "proposal_title": {
         "required": "Vorschlagstitel ist erforderlich",
-        "min_length": "Vorschlagstitel muss mindestens 5 Zeichen lang sein"
+        "min_length": "Der Vorschlagstitel muss mindestens 5 Zeichen lang sein"
       },
       "url": {
         "required": "Vorschlags-URL ist erforderlich",
@@ -70,15 +84,15 @@
       "vote_options": {
         "required": "Abstimmungsoptionen sind erforderlich",
         "min_length": "Mindestens 2 Abstimmungsoptionen sind erforderlich",
-        "min_title_length": "Abstimmungsoption muss mindestens 1 Zeichen lang sein"
+        "min_title_length": "Die Abstimmungsoption muss mindestens 1 Zeichen lang sein"
       }
     }
   },
   "connect_wallet_modal": {
     "account_connected": "Konto erfolgreich verbunden",
     "copy_uri": "URI kopieren",
-    "scan_qr": "Scannen Sie diesen QR-Code mit Ihrer Qubic Wallet oder kopieren Sie den untenstehenden Link:",
+    "scan_qr": "Scannen Sie diesen QR-Code mit Ihrer Qubic Wallet oder kopieren Sie den unten stehenden Link:",
     "wallet_connection_gen_url_error": "Fehler beim Generieren der WalletConnect-URI. Bitte versuchen Sie es erneut.",
-    "metamask_cooming_soon": "MetaMask (bald verfügbar)"
+    "metamask_cooming_soon": "MetaMask (kommt bald)"
   }
 }
