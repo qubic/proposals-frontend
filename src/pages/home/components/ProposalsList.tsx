@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Alert } from '@app/components/ui'
-import type { Proposal } from '@app/store/apis/qli'
+import type { Peer, Proposal } from '@app/store/apis/qli'
 import ProposalCard from './ProposalCard'
 
 type Props = Readonly<{
@@ -11,6 +11,7 @@ type Props = Readonly<{
   isError: boolean
   noDataMessage: string
   errorMessage: string
+  peers: Peer[]
 }>
 
 const ProposalsSkeleton = memo(() =>
@@ -27,7 +28,14 @@ const groupByEpoch = (proposals: Proposal[]) => {
   }, {})
 }
 
-function ProposalsList({ isFetching, isError, proposals, noDataMessage, errorMessage }: Props) {
+function ProposalsList({
+  isFetching,
+  isError,
+  proposals,
+  noDataMessage,
+  errorMessage,
+  peers
+}: Props) {
   const { t } = useTranslation()
 
   if (isFetching) return <ProposalsSkeleton />
@@ -51,8 +59,8 @@ function ProposalsList({ isFetching, isError, proposals, noDataMessage, errorMes
           </h2>
           <ul className="grid gap-24">
             {epochProposals.map((proposal) => (
-              <li key={proposal.url}>
-                <ProposalCard proposal={proposal} />
+              <li key={proposal.proposalId}>
+                <ProposalCard proposal={proposal} peers={peers} />
               </li>
             ))}
           </ul>
