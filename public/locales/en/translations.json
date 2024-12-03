@@ -4,6 +4,7 @@
     "unlock_wallet": "Unlock Wallet",
     "paste": "Paste",
     "cancel": "Cancel",
+    "cancelled": "Cancelled",
     "close": "Close",
     "confirm": "Confirm",
     "select_account": "Select Account",
@@ -16,7 +17,9 @@
     "approved": "Approved",
     "rejected": "Rejected",
     "voting": "Voting",
-    "epoch": "Epoch"
+    "epoch": "Epoch",
+    "options": "Options",
+    "notes": "Notes"
   },
   "home_page": {
     "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",
@@ -29,12 +32,19 @@
     "votes_count": "{{count}} Votes",
     "votes_list": "Votes List",
     "proposal_details": "Proposal Details",
-    "last_vote": "Last vote at Tick: {{tick}}",
+    "proposal_specification": "Proposal Specification",
+    "last_vote": "Last vote at Tick",
     "error_fetching_proposals": "Sorry, an error occurred while fetching proposals. Please try again.",
     "no_active_proposals": "No active proposals found",
     "no_ended_proposals": "No ended proposals found",
     "no_votes": "No votes yet",
-    "published_tick": "Published Tick: {{tick}}"
+    "published_tick": "Published Tick",
+    "proposer": "Proposer",
+    "proposal_type": "Proposal Type",
+    "vote_instructions_title": "To cast your vote, please use the following command in the Qubic CLI.",
+    "total_votes": "Total Votes",
+    "contract_name": "Contract Name",
+    "proposal_index": "Proposal Index"
   },
   "error_page": {
     "page_not_found": "Page not found",
