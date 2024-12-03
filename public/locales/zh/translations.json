@@ -4,38 +4,52 @@
     "unlock_wallet": "解锁钱包",
     "paste": "粘贴",
     "cancel": "取消",
+    "cancelled": "已取消",
     "close": "关闭",
     "confirm": "确认",
     "select_account": "选择账户",
-    "change_account": "更换账户",
+    "change_account": "更改账户",
     "beta": "测试版",
     "learn_more": "了解更多",
     "tick": "滴答",
     "addressId": "地址ID",
-    "option": "选项"
+    "option": "选项",
+    "approved": "已批准",
+    "rejected": "已拒绝",
+    "voting": "投票中",
+    "epoch": "纪元",
+    "options": "选项",
+    "notes": "备注"
   },
   "home_page": {
-    "title": "使用<bold>计算机投票</bold>的Qubic网络决策",
-    "description": "Qubic计算机投票用于就整个网络的决策主题达成共识。这可能包括接受智能合约或做出其他协议决策。只有计算机可以参与。",
+    "title": "使用<bold>计算投票</bold>做出Qubic网络决策",
+    "description": "Qubic的计算投票用于就整个网络需要决定的主题达成共识。这可能包括接受智能合约或做出其他协议决策。只有计算者可以参与。",
     "create_proposal": "创建提案",
-    "active_proposals": "活动提案",
+    "active_proposals": "活跃提案",
     "ended_proposals": "已结束提案",
     "submit_vote": "提交投票",
-    "vote_option": "选项{{number}}",
-    "votes_count": "{{count}}票",
+    "vote_option": "选项 {{number}}",
+    "votes_count": "{{count}} 票",
     "votes_list": "投票列表",
     "proposal_details": "提案详情",
-    "last_vote": "最后投票滴答：{{tick}}",
-    "error_fetching_proposals": "抱歉，获取提案时出错。请重试。",
-    "no_active_proposals": "未找到活动提案",
+    "proposal_specification": "提案规格",
+    "last_vote": "最后投票在滴答",
+    "error_fetching_proposals": "抱歉，获取提案时发生错误。请重试。",
+    "no_active_proposals": "未找到活跃提案",
     "no_ended_proposals": "未找到已结束提案",
     "no_votes": "尚无投票",
-    "published_tick": "发布的滴答：{{tick}}"
+    "published_tick": "发布于滴答",
+    "proposer": "提案人",
+    "proposal_type": "提案类型",
+    "vote_instructions_title": "要投票，请在Qubic CLI中使用以下命令。",
+    "total_votes": "总投票数",
+    "contract_name": "合约名称",
+    "proposal_index": "提案索引"
   },
   "error_page": {
     "page_not_found": "页面未找到",
-    "error_404_message": "恭喜！您是找到我们404页面的少数人之一。",
-    "back_to_home_page": "返回主页",
+    "error_404_message": "恭喜！您是少数能找到我们404页面的人之一。",
+    "back_to_home_page": "返回首页",
     "title": "哎呀！",
     "unexpected_error": "抱歉，发生了意外错误。",
     "retry": "重试"
@@ -43,41 +57,41 @@
   "create_proposal_page": {
     "title": "创建提案",
     "proposal_title": "提案标题",
-    "proposal_title_description": "为您的提案提供简短而描述性的标题。确保它清楚地反映提案的目的。",
-    "url": "URL",
-    "url_description": "输入可找到有关提案详细信息的URL。目前仅支持GitHub链接。",
+    "proposal_title_description": "为您的提案提供一个简短且描述性强的标题。确保它能清晰地反映提案的目的。",
+    "url": "链接",
+    "url_description": "输入一个链接，其中可以找到有关您的提案的详细信息。目前，仅支持GitHub链接。",
     "vote_options": "投票选项",
-    "vote_option": "选项{{number}}",
-    "vote_options_description": "提供用户可以投票的选项。每个选项应代表与提案相关的特定结果或决策。",
+    "vote_option": "选项 {{number}}",
+    "vote_options_description": "提供用户可以投票的选项。每个选项都应代表与提案相关的明确结果或决定。",
     "add_option": "添加选项",
     "submit_proposal": "提交提案",
-    "submitting_proposal": "提交提案中...",
+    "submitting_proposal": "正在提交提案...",
     "proposal_submitted": "提案提交成功",
     "general_proposal": "一般提案",
     "computor_donation": "捐赠提案",
-    "ccf_funding_proposal": "CCF资金提案",
+    "ccf_funding_proposal": "CCF资助提案",
     "shareholder_proposal": "智能合约提案",
     "validation": {
       "proposal_title": {
         "required": "提案标题是必需的",
-        "min_length": "提案标题必须至少5个字符"
+        "min_length": "提案标题必须至少包含5个字符"
       },
       "url": {
-        "required": "提案URL是必需的",
-        "invalid": "无效的URL",
-        "github_url": "无效的URL格式，仅支持GitHub链接"
+        "required": "提案链接是必需的",
+        "invalid": "无效的链接",
+        "github_url": "链接格式无效，仅支持GitHub链接"
       },
       "vote_options": {
         "required": "投票选项是必需的",
         "min_length": "至少需要2个投票选项",
-        "min_title_length": "投票选项必须至少1个字符"
+        "min_title_length": "投票选项必须至少包含1个字符"
       }
     }
   },
   "connect_wallet_modal": {
-    "account_connected": "账户已成功连接",
-    "copy_uri": "复制URI",
-    "scan_qr": "使用您的Qubic钱包扫描此QR码或复制以下链接：",
+    "account_connected": "账户连接成功",
+    "copy_uri": "复制 URI",
+    "scan_qr": "使用您的Qubic钱包扫描此二维码或复制以下链接：",
     "wallet_connection_gen_url_error": "生成WalletConnect URI失败。请重试。",
     "metamask_cooming_soon": "MetaMask（即将推出）"
   }

@@ -1,3 +1,8 @@
+export enum ProposalContractIndex {
+  GQMPROP_CONTRACT_INDEX = 6,
+  CCF_CONTRACT_INDEX = 8
+}
+
 export enum ProposalStatus {
   DRAFT = 0,
   PUBLISHING = 1,
@@ -5,6 +10,17 @@ export enum ProposalStatus {
   SUCCESS = 3,
   FAILED = 4,
   CANCELED = 5
+}
+
+export enum ProposalType {
+  GENERAL_OPTIONS = 'GeneralOptions',
+  TRANSFER = 'Transfer',
+  VARIABLE = 'Variable'
+}
+
+export enum TransferType {
+  ABSOLUTE = 'Absolute',
+  RELATIVE = 'Relative'
 }
 
 export interface User {
@@ -29,6 +45,13 @@ export interface Vote {
   voteTick: number
 }
 
+export interface ProposalOption {
+  index: number
+  label: string
+  value?: string
+  numberOfVotes: number
+}
+
 export interface Proposal {
   latestVoteTick: number
   reportCreated: string
@@ -41,8 +64,10 @@ export interface Proposal {
   contractIndex: number
   contractName: string
   proposalIndex: number
-  numberOfOptions: number
-  proposalType: number
+  proposalType: ProposalType
+  transferType?: TransferType // only present if proposalType=Transfer
+  transferUnit?: number // defines the unit of transfer (1 for absolute, 10000 for relative, etc.)
+  transferDestinationIdentity?: string // ID of the recipient of the transfer/donation
   proposalTick: number
   epoch: number
   tickForPublish: number
@@ -59,8 +84,9 @@ export interface Proposal {
   sumOption7: number
   title: string
   description?: string | null
-  options?: string | null
   hasVotes: boolean
+  options: ProposalOption[]
+  proposalId: string
 }
 
 export interface GetEndedProposalsResponse {
@@ -68,4 +94,10 @@ export interface GetEndedProposalsResponse {
   page: number
   pageSize: number
   result: Proposal[]
+}
+
+export interface Peer {
+  ipAddress: string
+  currentTick: number
+  lastChange: string
 }

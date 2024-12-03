@@ -1,6 +1,7 @@
-import { clsxTwMerge } from '@app/utils'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+
+import { clsxTwMerge } from '@app/utils'
 import { PROPOSALS_TABS } from '../constants'
 
 export type TabKey = (typeof PROPOSALS_TABS)[number]['i18nKey']
