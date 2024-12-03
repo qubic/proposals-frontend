@@ -1,9 +1,10 @@
 {
   "global": {
     "lock_wallet": "Cüzdanı Kilitle",
-    "unlock_wallet": "Cüzdanın Kilidini Aç",
+    "unlock_wallet": "Cüzdanı Aç",
     "paste": "Yapıştır",
     "cancel": "İptal",
+    "cancelled": "İptal Edildi",
     "close": "Kapat",
     "confirm": "Onayla",
     "select_account": "Hesap Seç",
@@ -11,48 +12,57 @@
     "beta": "Beta",
     "learn_more": "Daha Fazla Bilgi",
     "tick": "Tik",
-    "addressId": "Adres Kimliği",
+    "addressId": "Adres ID",
     "option": "Seçenek",
     "approved": "Onaylandı",
     "rejected": "Reddedildi",
     "voting": "Oylama",
-    "epoch": "Çağ"
+    "epoch": "Çağ",
+    "options": "Seçenekler",
+    "notes": "Notlar"
   },
   "home_page": {
-    "title": "Qubic Ağı Kararları <bold>Bilgisayar Oylaması</bold>",
-    "description": "Qubic bilgisayar oylaması, tüm ağı ilgilendiren konular üzerinde fikir birliğine varmak için kullanılır. Buna akıllı sözleşmelerin kabul edilmesi veya diğer protokol kararlarının alınması dahil olabilir. Sadece bilgisayarlar katılabilir.",
+    "title": "Qubic Ağı Kararları <bold>Bilgisayarlı Oylama</bold> ile",
+    "description": "Qubic bilgisayarlı oylama, tüm ağı ilgilendiren konularda fikir birliğine varmak için kullanılır. Bu, akıllı sözleşmelerin kabul edilmesini veya diğer protokol kararlarını içerebilir. Yalnızca bilgisayarlar katılabilir.",
     "create_proposal": "Teklif Oluştur",
     "active_proposals": "Aktif Teklifler",
-    "ended_proposals": "Sonlanan Teklifler",
+    "ended_proposals": "Sonlanmış Teklifler",
     "submit_vote": "Oyu Gönder",
     "vote_option": "Seçenek {{number}}",
-    "votes_count": "{{count}} Oylar",
+    "votes_count": "{{count}} Oy",
     "votes_list": "Oy Listesi",
     "proposal_details": "Teklif Detayları",
-    "last_vote": "Son oy Tik: {{tick}}",
-    "error_fetching_proposals": "Üzgünüz, teklifleri getirirken bir hata oluştu. Lütfen tekrar deneyin.",
+    "proposal_specification": "Teklif Şartnamesi",
+    "last_vote": "Son oy Tik'te verildi",
+    "error_fetching_proposals": "Üzgünüz, teklifleri alırken bir hata oluştu. Lütfen tekrar deneyin.",
     "no_active_proposals": "Aktif teklif bulunamadı",
-    "no_ended_proposals": "Sonlanan teklif bulunamadı",
+    "no_ended_proposals": "Sonlanmış teklif bulunamadı",
     "no_votes": "Henüz oy yok",
-    "published_tick": "Yayınlanan Tik: {{tick}}"
+    "published_tick": "Tik'te yayınlandı",
+    "proposer": "Teklif Sahibi",
+    "proposal_type": "Teklif Türü",
+    "vote_instructions_title": "Oy vermek için lütfen Qubic CLI'da aşağıdaki komutu kullanın.",
+    "total_votes": "Toplam Oy",
+    "contract_name": "Sözleşme Adı",
+    "proposal_index": "Teklif İndeksi"
   },
   "error_page": {
     "page_not_found": "Sayfa bulunamadı",
-    "error_404_message": "Tebrikler! 404 sayfamızı bulmayı başaran seçkinlerden birisiniz.",
+    "error_404_message": "Tebrikler! 404 sayfamızı bulmayı başaran azınlıktan birisiniz.",
     "back_to_home_page": "Ana Sayfaya Dön",
     "title": "Hata!",
-    "unexpected_error": "Üzgünüz, beklenmeyen bir hata oluştu.",
+    "unexpected_error": "Üzgünüz, beklenmedik bir hata oluştu.",
     "retry": "Tekrar Dene"
   },
   "create_proposal_page": {
     "title": "Teklif Oluştur",
     "proposal_title": "Teklif Başlığı",
-    "proposal_title_description": "Teklifiniz için kısa ve açıklayıcı bir başlık sağlayın. Teklifin amacını net bir şekilde yansıttığından emin olun.",
+    "proposal_title_description": "Teklifiniz için kısa ve açıklayıcı bir başlık sağlayın. Amacını net bir şekilde yansıttığından emin olun.",
     "url": "URL",
-    "url_description": "Teklifinizle ilgili ayrıntılı bilgilerin bulunabileceği bir URL girin. Şu anda yalnızca GitHub bağlantılarına izin veriliyor.",
+    "url_description": "Teklifinizle ilgili ayrıntılı bilgilerin bulunabileceği bir URL girin. Şu anda yalnızca GitHub bağlantılarına izin verilmektedir.",
     "vote_options": "Oylama Seçenekleri",
     "vote_option": "Seçenek {{number}}",
-    "vote_options_description": "Kullanıcıların oylayabileceği seçenekler sağlayın. Her seçenek, teklif ile ilgili belirli bir sonuç veya kararı temsil etmelidir.",
+    "vote_options_description": "Kullanıcıların oy verebileceği seçenekler sağlayın. Her bir seçenek, teklif ile ilgili belirgin bir sonuç veya kararı temsil etmelidir.",
     "add_option": "Seçenek Ekle",
     "submit_proposal": "Teklifi Gönder",
     "submitting_proposal": "Teklif Gönderiliyor...",
@@ -64,7 +74,7 @@
     "validation": {
       "proposal_title": {
         "required": "Teklif başlığı gereklidir",
-        "min_length": "Teklif başlığı en az 5 karakter olmalıdır"
+        "min_length": "Teklif başlığı en az 5 karakter uzunluğunda olmalıdır"
       },
       "url": {
         "required": "Teklif URL'si gereklidir",
@@ -81,8 +91,8 @@
   "connect_wallet_modal": {
     "account_connected": "Hesap Başarıyla Bağlandı",
     "copy_uri": "URI'yi Kopyala",
-    "scan_qr": "Bu QR kodunu Qubic Cüzdanınız ile tarayın veya aşağıdaki bağlantıyı kopyalayın:",
+    "scan_qr": "Bu QR kodunu Qubic Cüzdanınızla tarayın veya aşağıdaki bağlantıyı kopyalayın:",
     "wallet_connection_gen_url_error": "WalletConnect URI'si oluşturulamadı. Lütfen tekrar deneyin.",
-    "metamask_cooming_soon": "MetaMask (yakında)"
+    "metamask_cooming_soon": "MetaMask (çok yakında)"
   }
 }

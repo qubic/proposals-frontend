@@ -4,9 +4,10 @@
     "unlock_wallet": "Déverrouiller le portefeuille",
     "paste": "Coller",
     "cancel": "Annuler",
+    "cancelled": "Annulé",
     "close": "Fermer",
     "confirm": "Confirmer",
-    "select_account": "Sélectionner le compte",
+    "select_account": "Sélectionner un compte",
     "change_account": "Changer de compte",
     "beta": "Bêta",
     "learn_more": "En savoir plus",
@@ -16,11 +17,13 @@
     "approved": "Approuvé",
     "rejected": "Rejeté",
     "voting": "Vote",
-    "epoch": "Époque"
+    "epoch": "Époque",
+    "options": "Options",
+    "notes": "Notes"
   },
   "home_page": {
-    "title": "Décisions du réseau Qubic avec <bold>vote Computor</bold>",
-    "description": "Le vote computor de Qubic est utilisé pour parvenir à un consensus sur les sujets à décider concernant l'ensemble du réseau. Cela peut inclure l'acceptation de contrats intelligents ou la prise d'autres décisions de protocole. Seuls les computors sont autorisés à participer.",
+    "title": "Décisions du réseau Qubic avec le <bold>Vote Computor</bold>",
+    "description": "Le vote computor de Qubic est utilisé pour parvenir à un consensus sur les sujets à décider concernant l'ensemble du réseau. Cela peut inclure l'acceptation de contrats intelligents ou d'autres décisions de protocole. Seuls les computors sont autorisés à participer.",
     "create_proposal": "Créer une proposition",
     "active_proposals": "Propositions actives",
     "ended_proposals": "Propositions terminées",
@@ -29,12 +32,19 @@
     "votes_count": "{{count}} votes",
     "votes_list": "Liste des votes",
     "proposal_details": "Détails de la proposition",
-    "last_vote": "Dernier vote au Tick : {{tick}}",
+    "proposal_specification": "Spécification de la proposition",
+    "last_vote": "Dernier vote au Tick",
     "error_fetching_proposals": "Désolé, une erreur s'est produite lors de la récupération des propositions. Veuillez réessayer.",
     "no_active_proposals": "Aucune proposition active trouvée",
     "no_ended_proposals": "Aucune proposition terminée trouvée",
-    "no_votes": "Pas encore de votes",
-    "published_tick": "Tick publié : {{tick}}"
+    "no_votes": "Aucun vote pour l'instant",
+    "published_tick": "Publié au Tick",
+    "proposer": "Proposant",
+    "proposal_type": "Type de proposition",
+    "vote_instructions_title": "Pour voter, veuillez utiliser la commande suivante dans le CLI Qubic.",
+    "total_votes": "Nombre total de votes",
+    "contract_name": "Nom du contrat",
+    "proposal_index": "Index de la proposition"
   },
   "error_page": {
     "page_not_found": "Page non trouvée",
@@ -52,9 +62,9 @@
     "url_description": "Entrez une URL où des informations détaillées sur votre proposition peuvent être trouvées. Actuellement, seuls les liens GitHub sont autorisés.",
     "vote_options": "Options de vote",
     "vote_option": "Option {{number}}",
-    "vote_options_description": "Fournissez les options pour lesquelles les utilisateurs peuvent voter. Chaque option doit représenter un résultat ou une décision distincte liée à la proposition.",
+    "vote_options_description": "Fournissez les options sur lesquelles les utilisateurs peuvent voter. Chaque option doit représenter un résultat ou une décision distincte liée à la proposition.",
     "add_option": "Ajouter une option",
-    "submit_proposal": "Soumettre une proposition",
+    "submit_proposal": "Soumettre la proposition",
     "submitting_proposal": "Soumission de la proposition...",
     "proposal_submitted": "Proposition soumise avec succès",
     "general_proposal": "Proposition générale",
@@ -82,7 +92,7 @@
     "account_connected": "Compte connecté avec succès",
     "copy_uri": "Copier l'URI",
     "scan_qr": "Scannez ce code QR avec votre portefeuille Qubic ou copiez le lien ci-dessous :",
-    "wallet_connection_gen_url_error": "Impossible de générer l'URI WalletConnect. Veuillez réessayer.",
+    "wallet_connection_gen_url_error": "Échec de la génération de l'URI WalletConnect. Veuillez réessayer.",
     "metamask_cooming_soon": "MetaMask (bientôt disponible)"
   }
 }
