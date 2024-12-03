@@ -1,31 +1,29 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { CheckCircleIcon, GithubIcon, VotesListIcon } from '@app/assets/icons'
+import {
+  ArrowTopRightOnSquareIcon,
+  CheckCircleIcon,
+  DetailsIcon,
+  VotesListIcon
+} from '@app/assets/icons'
 import { Badge, Select, Skeleton, Tooltip } from '@app/components/ui'
 import { Button } from '@app/components/ui/buttons'
 import { isVotingEnabled } from '@app/configs'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
-import { ProposalStatus, type Proposal } from '@app/store/apis/qli'
+import type { Peer, Proposal } from '@app/store/apis/qli'
+import { ProposalStatus } from '@app/store/apis/qli'
 import { ModalType, showModal } from '@app/store/modalSlice'
-import { formatDate, formatString } from '@app/utils'
+import { formatDate } from '@app/utils'
 import ProposalStatusBadge from './ProposalStatusBadge'
-
-const getWinnerOption = (proposal: Proposal) => {
-  const sumOptions = Array.from(
-    { length: 8 },
-    (_, index) => proposal[`sumOption${index as 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7}`]
-  )
-
-  return sumOptions.findIndex((votes) => votes === proposal.mostVotes)
-}
 
 type Props = Readonly<{
   proposal: Proposal
+  peers: Peer[]
   submitText?: string
 }>
 
-function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
+function ProposalCard({ proposal, peers, submitText = 'Submit' }: Props) {
   const { isWalletConnected, isComputor } = useWalletConnect()
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
@@ -36,7 +34,14 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
     )
   }, [dispatch, proposal.ballots])
 
-  const winnerOption = useMemo(() => getWinnerOption(proposal), [proposal])
+  const handleShowDetailsModal = useCallback(() => {
+    dispatch(showModal({ modalType: ModalType.PROPOSAL_DETAILS, modalProps: { proposal, peers } }))
+  }, [dispatch, proposal, peers])
+
+  const winnerOption = useMemo(
+    () => proposal.options.findIndex(({ numberOfVotes }) => numberOfVotes === proposal.mostVotes),
+    [proposal]
+  )
 
   const isWinningOption = useCallback(
     (option: number) => proposal.status === ProposalStatus.SUCCESS && winnerOption === option,
@@ -44,64 +49,56 @@ function ProposalCard({ proposal, submitText = 'Submit' }: Props) {
   )
 
   return (
-    <article className="max-w-[652px] space-y-20 rounded-12 border border-primary-60 bg-primary-70 p-24">
-      <header className="flex flex-col gap-12">
-        <div className="flex items-center justify-between gap-24">
-          <h1 className="">{proposal.title}</h1>
-          <div className="flex w-fit gap-24">
-            <Tooltip content={t('home_page.votes_list')}>
-              <Button variant="wrapper" onClick={handleShowVotesListModal}>
-                <VotesListIcon />
+    <article className="max-w-[652px] space-y-16 rounded-12 border border-primary-60 bg-primary-70 p-24">
+      <header className="flex flex-col gap-8">
+        <div className="flex justify-between gap-8">
+          <Badge size="xs" className="whitespace-nowrap text-center">
+            {proposal.contractName}
+          </Badge>
+          <div className="flex w-fit gap-16">
+            <Tooltip content={t('home_page.proposal_details')}>
+              <Button variant="wrapper" onClick={handleShowDetailsModal}>
+                <DetailsIcon className="size-18 text-primary-20" />
               </Button>
             </Tooltip>
-            <Tooltip content={t('home_page.proposal_details')}>
-              <a
-                href={proposal.url}
-                aria-label="proposals-github-link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GithubIcon />
+            <Tooltip content={t('home_page.votes_list')}>
+              <Button variant="wrapper" onClick={handleShowVotesListModal}>
+                <VotesListIcon className="size-18" />
+              </Button>
+            </Tooltip>
+            <Tooltip content={t('home_page.proposal_specification')}>
+              <a href={proposal.url} aria-label="proposals-link" target="_blank" rel="noreferrer">
+                <ArrowTopRightOnSquareIcon className="size-18 text-primary-20" />
               </a>
             </Tooltip>
           </div>
         </div>
-        <div className="flex flex-col-reverse justify-between gap-8">
-          <div className="flex flex-wrap justify-between gap-8 text-center">
+        <div className="flex items-start justify-between gap-24">
+          <div>
+            <h1 className="leading-0">{proposal.title}</h1>
             <p className="text-xxs text-slate-500 sm:text-xs">
               {formatDate(proposal.published, { excludeTimeZone: true })}
             </p>
-            <p className="text-xxs text-slate-500 sm:text-xs">
-              {t('home_page.published_tick', { tick: formatString(proposal.publishedTick) })}
-            </p>
-            <p className="text-xxs text-slate-500 sm:text-xs">
-              {proposal.latestVoteTick > 0
-                ? t('home_page.last_vote', { tick: formatString(proposal.latestVoteTick) })
-                : t('home_page.no_votes')}
-            </p>
           </div>
-          <div className="flex justify-between gap-8">
-            <Badge size="xs" className="whitespace-nowrap text-center">
-              {proposal.contractName}
-            </Badge>
-            <ProposalStatusBadge status={proposal.status} />
-          </div>
+          <ProposalStatusBadge status={proposal.status} />
         </div>
       </header>
-      <dl className="grid grid-cols-2 gap-16 lg:grid-cols-3">
-        {Object.entries(proposal.resultSummary).map(([voteOption, votesList]) => (
-          <div key={voteOption}>
-            <dt className="text-xs text-gray-50">
+
+      <dl className="flex flex-wrap gap-x-60 gap-y-20">
+        {proposal.options.map(({ index: optionNum, label, numberOfVotes }) => (
+          <div key={optionNum}>
+            <dt className="text-xs">
               {t('home_page.vote_option', {
-                number: voteOption
+                number: optionNum
               })}
             </dt>
+            <dt className="text-xs text-slate-500">{label}</dt>
             <dd className="flex items-center gap-2">
-              {isWinningOption(Number(voteOption)) && (
+              {isWinningOption(optionNum) && (
                 <CheckCircleIcon className="size-18 text-success-40" />
               )}
               {t('home_page.votes_count', {
-                count: votesList.length
+                count: numberOfVotes
               })}
             </dd>
           </div>
