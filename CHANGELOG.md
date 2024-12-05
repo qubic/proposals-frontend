@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/qubic/proposals-frontend/compare/v1.1.0...v1.2.0) (2024-12-05)
+
+
+### Features
+
+* update proposal details to include all vote cli commands ([d2cb8fd](https://github.com/qubic/proposals-frontend/commit/d2cb8fdc926cf1d6bddad142a1778fccfe608195))
+
 # [1.1.0](https://github.com/qubic/proposals-frontend/compare/v1.0.0...v1.1.0) (2024-12-03)
 
 
