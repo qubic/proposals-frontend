@@ -19,7 +19,8 @@
     "voting": "التصويت",
     "epoch": "عصر",
     "options": "خيارات",
-    "notes": "ملاحظات"
+    "notes": "ملاحظات",
+    "vote": "تصويت"
   },
   "home_page": {
     "title": "قرارات شبكة Qubic باستخدام <bold>التصويت الحسابي</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "لإدلاء صوتك، يرجى استخدام الأمر التالي في Qubic CLI.",
     "total_votes": "إجمالي الأصوات",
     "contract_name": "اسم العقد",
-    "proposal_index": "فهرس الاقتراح"
+    "proposal_index": "فهرس الاقتراح",
+    "vote_cast_param_description": "يمثل المعامل الأخير التصويت الذي سيتم الإدلاء به."
   },
   "error_page": {
     "page_not_found": "الصفحة غير موجودة",

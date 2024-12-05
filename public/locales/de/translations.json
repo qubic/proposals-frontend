@@ -19,7 +19,8 @@
     "voting": "Abstimmung",
     "epoch": "Epoche",
     "options": "Optionen",
-    "notes": "Notizen"
+    "notes": "Notizen",
+    "vote": "Abstimmung"
   },
   "home_page": {
     "title": "Entscheidungen im Qubic-Netzwerk mit <bold>Computor-Abstimmung</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "Um Ihre Stimme abzugeben, verwenden Sie bitte den folgenden Befehl im Qubic CLI.",
     "total_votes": "Gesamtstimmen",
     "contract_name": "Vertragsname",
-    "proposal_index": "Vorschlagsindex"
+    "proposal_index": "Vorschlagsindex",
+    "vote_cast_param_description": "Der letzte Parameter stellt die abzugebende Stimme dar."
   },
   "error_page": {
     "page_not_found": "Seite nicht gefunden",

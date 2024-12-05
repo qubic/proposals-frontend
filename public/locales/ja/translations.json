@@ -19,7 +19,8 @@
     "voting": "投票中",
     "epoch": "エポック",
     "options": "オプション",
-    "notes": "メモ"
+    "notes": "メモ",
+    "vote": "投票"
   },
   "home_page": {
     "title": "Qubicネットワークの意思決定 <bold>計算投票</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "投票するには、以下のコマンドをQubic CLIで使用してください。",
     "total_votes": "総投票数",
     "contract_name": "契約名",
-    "proposal_index": "提案インデックス"
+    "proposal_index": "提案インデックス",
+    "vote_cast_param_description": "最後のパラメータは投票内容を表します。"
   },
   "error_page": {
     "page_not_found": "ページが見つかりません",

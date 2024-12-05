@@ -19,7 +19,8 @@
     "voting": "Voting",
     "epoch": "Epoch",
     "options": "Options",
-    "notes": "Notes"
+    "notes": "Notes",
+    "vote": "Vote"
   },
   "home_page": {
     "title": "Qubic Network Decisions with <bold>Computor Voting</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "To cast your vote, please use the following command in the Qubic CLI.",
     "total_votes": "Total Votes",
     "contract_name": "Contract Name",
-    "proposal_index": "Proposal Index"
+    "proposal_index": "Proposal Index",
+    "vote_cast_param_description": "The last parameter represents the vote to be cast."
   },
   "error_page": {
     "page_not_found": "Page not found",

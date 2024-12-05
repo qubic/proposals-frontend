@@ -19,7 +19,8 @@
     "voting": "Голосование",
     "epoch": "Эпоха",
     "options": "Опции",
-    "notes": "Заметки"
+    "notes": "Заметки",
+    "vote": "Голос"
   },
   "home_page": {
     "title": "Решения сети Qubic с использованием <bold>Компьютерного голосования</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "Чтобы проголосовать, используйте следующую команду в Qubic CLI.",
     "total_votes": "Всего голосов",
     "contract_name": "Название контракта",
-    "proposal_index": "Индекс предложения"
+    "proposal_index": "Индекс предложения",
+    "vote_cast_param_description": "Последний параметр представляет голос, который будет отдан."
   },
   "error_page": {
     "page_not_found": "Страница не найдена",

@@ -11,8 +11,8 @@ import { formatString } from '@app/utils'
 import { CopyTextButton } from '../ui/buttons'
 import { ExplorerAddressLink } from '../ui/links'
 
-const genCliCommand = (proposal: Proposal, peers: Peer[]): string => {
-  const { contractIndex, proposalIndex } = proposal
+const genCliCommands = (proposal: Proposal, peers: Peer[]): Map<number, string> => {
+  const { contractIndex, proposalIndex, options } = proposal
 
   const contractCommandMap: Record<ProposalContractIndex, string> = {
     [ProposalContractIndex.GQMPROP_CONTRACT_INDEX]: 'gqmpropvote',
@@ -30,7 +30,12 @@ const genCliCommand = (proposal: Proposal, peers: Peer[]): string => {
 
   const randomPeer = peers[Math.floor(Math.random() * peers.length)]
 
-  return `./qubic-cli -seed <ID-SEED> -nodeip ${randomPeer.ipAddress} -${proposalContractCommand} ${proposalIndex} <OPTION-INDEX>`
+  return new Map(
+    options.map((option) => [
+      option.index,
+      `./qubic-cli -seed <YOUR_PRIVATE_SEED> -nodeip ${randomPeer.ipAddress} -${proposalContractCommand} ${proposalIndex} ${option.index}`
+    ])
+  )
 }
 
 const getDetailsItems = (proposal: Proposal, t: (key: string) => string, isMobile: boolean) => [
@@ -100,7 +105,7 @@ export default function ProposalDetailsModal({ proposal, peers }: ProposalDetail
     () => getDetailsItems(proposal, t, isMobile),
     [proposal, t, isMobile]
   )
-  const voteCliCommand = useMemo(() => genCliCommand(proposal, peers), [proposal, peers])
+  const votesCliCommands = useMemo(() => genCliCommands(proposal, peers), [proposal, peers])
   const showVoteCommand = proposal.status === ProposalStatus.PENDING
 
   const handleCloseModal = useCallback(() => {
@@ -125,7 +130,10 @@ export default function ProposalDetailsModal({ proposal, peers }: ProposalDetail
         <div className="flex max-h-[75vh] flex-col justify-between gap-8 overflow-y-scroll px-10">
           <section className="flex max-h-[75vh] flex-col justify-between gap-8">
             {detailsItems.map((item) => (
-              <div className="flex flex-col gap-x-12 border-t-1 border-primary-60 p-2 pt-12 lg:flex-row lg:items-center">
+              <div
+                key={item.i18nKey}
+                className="flex flex-col gap-x-12 border-t-1 border-primary-60 p-2 pt-12 lg:flex-row lg:items-center"
+              >
                 <p className="w-120 text-gray-50">{t(item.i18nKey)}</p>
                 {item.content}
               </div>
@@ -136,28 +144,26 @@ export default function ProposalDetailsModal({ proposal, peers }: ProposalDetail
             <section className="space-y-10 border-t-1 border-primary-60 pt-16">
               <div className="grid gap-10">
                 <p className="mb-2 text-slate-500">{t('home_page.vote_instructions_title')}</p>
-                <div className="flex w-full items-center justify-between rounded-md bg-primary-80 p-10">
-                  <p className="text-white">{voteCliCommand}</p>
-                  <CopyTextButton text={voteCliCommand} />
-                </div>
+                <ul className="ml-18 list-disc space-y-10 text-gray-400">
+                  {proposal.options.map((option) => (
+                    <li key={option.index} className="space-y-4">
+                      <p>
+                        {t('global.vote')} {option.index} = {option.label}
+                      </p>
+                      <div className="flex w-full items-center justify-between rounded-md bg-primary-80 p-10">
+                        <p className="text-white">{votesCliCommands.get(option.index)}</p>
+                        <CopyTextButton text={votesCliCommands.get(option.index) ?? ''} />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
                 <div>
                   <p className="text-slate-500">{t('global.notes')}</p>
                   <ul className="ml-18 list-disc text-gray-400">
                     <li>
                       {proposal.proposalIndex} = {t('home_page.proposal_index')}
                     </li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-slate-500">{t('global.options')}</p>
-                  <ul className="ml-18 list-disc text-gray-400">
-                    {proposal.options.map((option) => (
-                      <li key={option.index}>
-                        <p>
-                          {option.index} = {option.label}
-                        </p>
-                      </li>
-                    ))}
+                    <li>{t('home_page.vote_cast_param_description')}</li>
                   </ul>
                 </div>
               </div>

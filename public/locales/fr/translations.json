@@ -19,7 +19,8 @@
     "voting": "Vote",
     "epoch": "Époque",
     "options": "Options",
-    "notes": "Notes"
+    "notes": "Notes",
+    "vote": "Vote"
   },
   "home_page": {
     "title": "Décisions du réseau Qubic avec le <bold>Vote Computor</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "Pour voter, veuillez utiliser la commande suivante dans le CLI Qubic.",
     "total_votes": "Nombre total de votes",
     "contract_name": "Nom du contrat",
-    "proposal_index": "Index de la proposition"
+    "proposal_index": "Index de la proposition",
+    "vote_cast_param_description": "Le dernier paramètre représente le vote à exprimer."
   },
   "error_page": {
     "page_not_found": "Page non trouvée",
