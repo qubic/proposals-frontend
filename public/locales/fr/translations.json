@@ -16,6 +16,8 @@
     "option": "Option",
     "approved": "Approuvé",
     "rejected": "Rejeté",
+    "failed": "Quorum n'est pas atteint",
+    "inconclusive": "Résultats non concluants",
     "voting": "Vote",
     "epoch": "Époque",
     "options": "Options",

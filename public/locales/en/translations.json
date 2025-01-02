@@ -16,6 +16,8 @@
     "option": "Option",
     "approved": "Approved",
     "rejected": "Rejected",
+    "failed": "Insufficient Quorum",
+    "inconclusive": "Inconclusive",
     "voting": "Voting",
     "epoch": "Epoch",
     "options": "Options",
