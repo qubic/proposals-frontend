@@ -9,9 +9,10 @@ export enum ProposalStatus {
   PENDING = 2,
   SUCCESS = 3,
   FAILED = 4,
-  CANCELED = 5,
+  CANCELLED = 5,
   REJECTED = 6, // approved by the voters (accepted by quorum; OPTION 0 won)
   INCONCLUSIVE = 7 // enough for quorum, but none of the options got minimum of 226 votes or multiple had > 226
+  // Check if we are going to support these statuses in the future
 }
 
 export enum ProposalType {

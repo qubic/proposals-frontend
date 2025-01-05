@@ -12,6 +12,7 @@ const STATUS_BADGE_MAP: Record<ProposalStatus, { color: BadgeColor; i18nKey: str
   [ProposalStatus.PENDING]: { color: 'warning', i18nKey: 'global.voting' },
   [ProposalStatus.FAILED]: { color: 'error', i18nKey: 'global.failed' },
   [ProposalStatus.SUCCESS]: { color: 'success', i18nKey: 'global.approved' },
+  [ProposalStatus.CANCELLED]: { color: 'error', i18nKey: 'global.cancelled' },
   [ProposalStatus.REJECTED]: { color: 'error', i18nKey: 'global.rejected' },
   [ProposalStatus.INCONCLUSIVE]: { color: 'error', i18nKey: 'global.inconclusive' },
   // These status aren't supported yet. Need to check if we are going to support them in the future
