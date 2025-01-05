@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/qubic/proposals-frontend/compare/v1.2.0...v1.3.0) (2025-01-05)
+
+
+### Features
+
+* add cancelled status to proposal status badge ([9adcb38](https://github.com/qubic/proposals-frontend/commit/9adcb385fcd30c28a973fb9cf62e00d432d9e52d))
+* add new status for ended proposals ([d038114](https://github.com/qubic/proposals-frontend/commit/d0381143276d592cf034dd3fdd313962403a224e))
+
 # [1.2.0](https://github.com/qubic/proposals-frontend/compare/v1.1.0...v1.2.0) (2024-12-05)
 
 
