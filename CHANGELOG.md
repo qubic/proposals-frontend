@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/qubic/proposals-frontend/compare/v1.3.0...v1.3.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* add whitespace-nowrap class to ProposalStatusBadge for better layout ([38562ba](https://github.com/qubic/proposals-frontend/commit/38562ba19d7be18d6062fc89be31a9226c4db735))
+
 # [1.3.0](https://github.com/qubic/proposals-frontend/compare/v1.2.0...v1.3.0) (2025-01-05)
 
 
