@@ -33,7 +33,7 @@ export default function ProposalStatusBadge({ status }: Props) {
   if (!badgeInfo?.i18nKey) return null
 
   return (
-    <Badge size="xs" color={badgeInfo.color}>
+    <Badge size="xs" color={badgeInfo.color} className="whitespace-nowrap">
       {t(badgeInfo.i18nKey)}
     </Badge>
   )
