@@ -19,7 +19,8 @@
     "voting": "Stemmen",
     "epoch": "Epoche",
     "options": "Opties",
-    "notes": "Notities"
+    "notes": "Notities",
+    "vote": "Stem"
   },
   "home_page": {
     "title": "Beslissingen in het Qubic-netwerk met <bold>Computor Voting</bold>",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "Om uw stem uit te brengen, gebruik de volgende opdracht in de Qubic CLI.",
     "total_votes": "Totaal aantal stemmen",
     "contract_name": "Contractnaam",
-    "proposal_index": "Voorstelindex"
+    "proposal_index": "Voorstelindex",
+    "vote_cast_param_description": "De laatste parameter vertegenwoordigt de stem die wordt uitgebracht."
   },
   "error_page": {
     "page_not_found": "Pagina niet gevonden",
