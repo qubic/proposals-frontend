@@ -1,3 +1,44 @@
+## [1.3.1](https://github.com/qubic/proposals-frontend/compare/v1.3.0...v1.3.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* add whitespace-nowrap class to ProposalStatusBadge for better layout ([38562ba](https://github.com/qubic/proposals-frontend/commit/38562ba19d7be18d6062fc89be31a9226c4db735))
+
+# [1.3.0](https://github.com/qubic/proposals-frontend/compare/v1.2.0...v1.3.0) (2025-01-05)
+
+
+### Features
+
+* add cancelled status to proposal status badge ([9adcb38](https://github.com/qubic/proposals-frontend/commit/9adcb385fcd30c28a973fb9cf62e00d432d9e52d))
+* add new status for ended proposals ([d038114](https://github.com/qubic/proposals-frontend/commit/d0381143276d592cf034dd3fdd313962403a224e))
+
+# [1.2.0](https://github.com/qubic/proposals-frontend/compare/v1.1.0...v1.2.0) (2024-12-05)
+
+
+### Features
+
+* update proposal details to include all vote cli commands ([d2cb8fd](https://github.com/qubic/proposals-frontend/commit/d2cb8fdc926cf1d6bddad142a1778fccfe608195))
+
+# [1.1.0](https://github.com/qubic/proposals-frontend/compare/v1.0.0...v1.1.0) (2024-12-03)
+
+
+### Features
+
+* add ExplorerAddressLink component ([548cc75](https://github.com/qubic/proposals-frontend/commit/548cc7528e2df22ec56af84116055cd29cfdd79c))
+* add getPeers query and extend proposal types with new enums and interfaces ([ec3f50c](https://github.com/qubic/proposals-frontend/commit/ec3f50c41db1d99735c5918484e9e14a4d3753c7))
+* add new SVG icons for top right arrow and details, update icon exports ([f6c0a82](https://github.com/qubic/proposals-frontend/commit/f6c0a828f4e8be5c04ab65df1041a1b238d7b68a))
+* add ProposalDetailsModal and enhance ModalManager for improved modal handling ([b21f3dd](https://github.com/qubic/proposals-frontend/commit/b21f3ddc2c2f836e405c71f62451bf4378b516ce))
+* add support for CANCELED status in ProposalStatusBadge and improve Props type definition ([4bb8161](https://github.com/qubic/proposals-frontend/commit/4bb81619e7ee8c4e4b8aa714123da44db00e23fc))
+* enhance proposal display, add grouping by epoch and add navigation by url params ([63cdaa8](https://github.com/qubic/proposals-frontend/commit/63cdaa87e437ca51d3698e3abb56a28ea95d52e7))
+* enhance ProposalCard to include peers and improve modal handling for proposal details ([73297db](https://github.com/qubic/proposals-frontend/commit/73297db44c8f43b6852ce70fbc2cfdee6b3cce76))
+* extend twMerge configuration to support custom Tailwind scales and avoid class conflicts ([bb4cd91](https://github.com/qubic/proposals-frontend/commit/bb4cd919f4f45b0f91efd5737ca6c3b60d8be18d))
+* integrate peers data into HomePage and update ProposalsList props ([5dd110f](https://github.com/qubic/proposals-frontend/commit/5dd110ff3f1bf3c24de83764537db6f8b69dff26))
+* update ProposalsList to accept peers and pass them to ProposalCard ([7d6caa4](https://github.com/qubic/proposals-frontend/commit/7d6caa407230ae624e2c39ed769cc53d94febbd0))
+* update Tooltip component ([90fab6a](https://github.com/qubic/proposals-frontend/commit/90fab6a5bc64bff808ba5db12a1663cf840bcb92))
+* update translations ([8ec7985](https://github.com/qubic/proposals-frontend/commit/8ec7985ef8d05e5f74d0863ceb322588bcf67b0c))
+* update translations with new keys for improved user experience ([e974b7b](https://github.com/qubic/proposals-frontend/commit/e974b7b67f6830bbc212e25dcbb088b2ff8c7aca))
+
 # 1.0.0 (2024-11-27)
 
 

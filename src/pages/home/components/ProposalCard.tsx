@@ -44,7 +44,9 @@ function ProposalCard({ proposal, peers, submitText = 'Submit' }: Props) {
   )
 
   const isWinningOption = useCallback(
-    (option: number) => proposal.status === ProposalStatus.SUCCESS && winnerOption === option,
+    (option: number) =>
+      (proposal.status === ProposalStatus.SUCCESS || proposal.status === ProposalStatus.REJECTED) &&
+      winnerOption === option,
     [proposal, winnerOption]
   )
 

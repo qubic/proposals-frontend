@@ -19,7 +19,8 @@
     "voting": "Oylama",
     "epoch": "Çağ",
     "options": "Seçenekler",
-    "notes": "Notlar"
+    "notes": "Notlar",
+    "vote": "Oy"
   },
   "home_page": {
     "title": "Qubic Ağı Kararları <bold>Bilgisayarlı Oylama</bold> ile",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "Oy vermek için lütfen Qubic CLI'da aşağıdaki komutu kullanın.",
     "total_votes": "Toplam Oy",
     "contract_name": "Sözleşme Adı",
-    "proposal_index": "Teklif İndeksi"
+    "proposal_index": "Teklif İndeksi",
+    "vote_cast_param_description": "Son parametre, verilecek oyu temsil eder."
   },
   "error_page": {
     "page_not_found": "Sayfa bulunamadı",

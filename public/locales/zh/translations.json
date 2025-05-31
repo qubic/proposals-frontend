@@ -19,7 +19,8 @@
     "voting": "投票中",
     "epoch": "纪元",
     "options": "选项",
-    "notes": "备注"
+    "notes": "备注",
+    "vote": "投票"
   },
   "home_page": {
     "title": "使用<bold>计算投票</bold>做出Qubic网络决策",
@@ -44,7 +45,8 @@
     "vote_instructions_title": "要投票，请在Qubic CLI中使用以下命令。",
     "total_votes": "总投票数",
     "contract_name": "合约名称",
-    "proposal_index": "提案索引"
+    "proposal_index": "提案索引",
+    "vote_cast_param_description": "最后一个参数表示要投出的票。"
   },
   "error_page": {
     "page_not_found": "页面未找到",
