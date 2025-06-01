@@ -1,3 +1,10 @@
+# [1.4.0-rc.2](https://github.com/qubic/proposals-frontend/compare/v1.4.0-rc.1...v1.4.0-rc.2) (2025-06-01)
+
+
+### Bug Fixes
+
+* ci fetch full commit history ([f466d19](https://github.com/qubic/proposals-frontend/commit/f466d19aa464894fa9b55f42cc7a4ee43c9cbcf0))
+
 # [1.4.0-rc.1](https://github.com/qubic/proposals-frontend/compare/v1.3.1...v1.4.0-rc.1) (2025-06-01)
 
 
