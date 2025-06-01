@@ -1,3 +1,15 @@
+# [1.4.0-rc.1](https://github.com/qubic/proposals-frontend/compare/v1.3.1...v1.4.0-rc.1) (2025-06-01)
+
+
+### Bug Fixes
+
+* add semantic release job ([0414377](https://github.com/qubic/proposals-frontend/commit/04143777eedc2719a67786f1a2b1042d4eaef879))
+
+
+### Features
+
+* add CCF explorer link in proposal details ([31d404d](https://github.com/qubic/proposals-frontend/commit/31d404d945386f6901822b0189042d15bd7d80f7))
+
 ## [1.3.1](https://github.com/qubic/proposals-frontend/compare/v1.3.0...v1.3.1) (2025-01-06)
 
 
