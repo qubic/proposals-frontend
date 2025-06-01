@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { XmarkIcon } from '@app/assets/icons'
 import { PortalModalWrapper } from '@app/components/ui/modals'
+import { SMART_CONTRACTS, SmartContractsIndexes } from '@app/constants/qubic'
 import { useAppDispatch, useTailwindBreakpoint } from '@app/hooks'
 import type { Peer, Proposal } from '@app/store/apis/qli'
 import { ProposalContractIndex, ProposalStatus } from '@app/store/apis/qli'
@@ -58,6 +59,18 @@ const getDetailsItems = (proposal: Proposal, t: (key: string) => string, isMobil
     content: (
       <div className="flex gap-4">
         <p className="text-white">&quot;{proposal.proposalType}&quot;</p>
+        {proposal.proposalType === 'Transfer' &&
+          proposal.contractIndex === SmartContractsIndexes.ComputorControlledFund && (
+            <p className="flex gap-4 text-slate-500">
+              from
+              <ExplorerAddressLink
+                label={SMART_CONTRACTS[SmartContractsIndexes.ComputorControlledFund].label}
+                value={SMART_CONTRACTS[SmartContractsIndexes.ComputorControlledFund].address}
+                className="sm:text-sm"
+                ellipsis={isMobile}
+              />
+            </p>
+          )}
         {proposal.proposalType === 'Transfer' && proposal.transferDestinationIdentity && (
           <p className="flex gap-4 text-slate-500">
             to
