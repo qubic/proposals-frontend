@@ -1,3 +1,35 @@
+# [1.4.0](https://github.com/qubic/proposals-frontend/compare/v1.3.1...v1.4.0) (2025-06-05)
+
+
+### Bug Fixes
+
+* add semantic release job ([0414377](https://github.com/qubic/proposals-frontend/commit/04143777eedc2719a67786f1a2b1042d4eaef879))
+* ci fetch full commit history ([f466d19](https://github.com/qubic/proposals-frontend/commit/f466d19aa464894fa9b55f42cc7a4ee43c9cbcf0))
+
+
+### Features
+
+* add CCF explorer link in proposal details ([31d404d](https://github.com/qubic/proposals-frontend/commit/31d404d945386f6901822b0189042d15bd7d80f7))
+
+# [1.4.0-rc.2](https://github.com/qubic/proposals-frontend/compare/v1.4.0-rc.1...v1.4.0-rc.2) (2025-06-01)
+
+
+### Bug Fixes
+
+* ci fetch full commit history ([f466d19](https://github.com/qubic/proposals-frontend/commit/f466d19aa464894fa9b55f42cc7a4ee43c9cbcf0))
+
+# [1.4.0-rc.1](https://github.com/qubic/proposals-frontend/compare/v1.3.1...v1.4.0-rc.1) (2025-06-01)
+
+
+### Bug Fixes
+
+* add semantic release job ([0414377](https://github.com/qubic/proposals-frontend/commit/04143777eedc2719a67786f1a2b1042d4eaef879))
+
+
+### Features
+
+* add CCF explorer link in proposal details ([31d404d](https://github.com/qubic/proposals-frontend/commit/31d404d945386f6901822b0189042d15bd7d80f7))
+
 ## [1.3.1](https://github.com/qubic/proposals-frontend/compare/v1.3.0...v1.3.1) (2025-01-06)
 
 
