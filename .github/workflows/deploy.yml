@@ -6,6 +6,9 @@ on:
       - dev
       - staging
       - main
+  pull_request:
+    types:
+      - closed
 
 jobs:
   deploy:
@@ -13,6 +16,8 @@ jobs:
     steps:
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full commit history
 
       - name: ⚙️ Setup pnpm
         uses: pnpm/action-setup@v4.0.0
@@ -26,6 +31,12 @@ jobs:
 
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: 🔖 Run Semantic Release
+        run: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging'
 
       - name: 🏗️ Build app
         env:
