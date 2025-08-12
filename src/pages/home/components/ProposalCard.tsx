@@ -77,7 +77,9 @@ function ProposalCard({ proposal, peers, submitText = 'Submit' }: Props) {
         </div>
         <div className="flex items-start justify-between gap-24">
           <div>
-            <h1 className="leading-0">{proposal.title}</h1>
+            <h1 className="leading-0 break-all" style={{ overflowWrap: 'break-word' }}>
+              {proposal.title}
+            </h1>
             <p className="text-xxs text-slate-500 sm:text-xs">
               {formatDate(proposal.published, { excludeTimeZone: true })}
             </p>
