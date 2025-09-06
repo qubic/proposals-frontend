@@ -84,7 +84,7 @@ export default function EpochPagination({
 
         <div className="flex items-center gap-8">
           <span className="text-sm text-gray-50">Epoch:</span>
-          <div className="w-24">
+          <div className="w-20">
             <TextInput
               type="number"
               value={inputValue}
@@ -93,6 +93,7 @@ export default function EpochPagination({
               size="sm"
               error={inputError}
               disabled={isLoading}
+              className="text-center"
             />
           </div>
           <Button
