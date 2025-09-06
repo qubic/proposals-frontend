@@ -1,6 +1,12 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { qliBaseQuery } from './qli.base-query'
-import type { GetEndedProposalsResponse, GetUserResponse, Peer, Proposal } from './qli.types'
+import type {
+  GetEndedProposalsResponse,
+  GetEpochHistoryResponse,
+  GetUserResponse,
+  Peer,
+  Proposal
+} from './qli.types'
 
 export const qliApi = createApi({
   reducerPath: 'qliApi',
@@ -15,10 +21,18 @@ export const qliApi = createApi({
     getEndedProposals: build.query<GetEndedProposalsResponse, void>({
       query: () => '/Voting/History'
     }),
+    getEpochHistory: build.query<GetEpochHistoryResponse, number>({
+      query: (epoch: number) => `/Voting/EpochHistory/${epoch}`
+    }),
     getPeers: build.query<Peer[], void>({
       query: () => '/Public/Peers'
     })
   })
 })
 
-export const { useGetActiveProposalsQuery, useGetEndedProposalsQuery, useGetPeersQuery } = qliApi
+export const {
+  useGetActiveProposalsQuery,
+  useGetEndedProposalsQuery,
+  useGetEpochHistoryQuery,
+  useGetPeersQuery
+} = qliApi

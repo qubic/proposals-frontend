@@ -99,6 +99,11 @@ export interface GetEndedProposalsResponse {
   result: Proposal[]
 }
 
+export interface GetEpochHistoryResponse {
+  epoch: number
+  result: Proposal[]
+}
+
 export interface Peer {
   ipAddress: string
   currentTick: number
