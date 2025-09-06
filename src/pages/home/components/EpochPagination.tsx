@@ -43,8 +43,8 @@ export default function EpochPagination({
       return
     }
 
-    if (epoch > latestEpoch) {
-      setInputError(`Epoch cannot be greater than ${latestEpoch}`)
+    if (epoch > latestEpoch - 1) {
+      setInputError(`Epoch cannot be greater than ${latestEpoch - 1}`)
       return
     }
 
@@ -87,13 +87,13 @@ export default function EpochPagination({
         </Button>
 
         <div className="flex items-center gap-8">
-          <div className="w-32">
+          <div className="min-w-[70px] max-w-[80px]">
             <TextInput
               type="number"
               value={inputValue}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}
-              size="sm"
+              size="xs"
               error={inputError}
               disabled={isLoading}
               className="text-center"
