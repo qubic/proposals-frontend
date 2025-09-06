@@ -68,7 +68,7 @@ export default function EpochPagination({
   }, [currentEpoch, onEpochChange])
 
   const handleNext = useCallback(() => {
-    if (currentEpoch < latestEpoch) {
+    if (currentEpoch < latestEpoch - 1) {
       onEpochChange(currentEpoch + 1)
     }
   }, [currentEpoch, latestEpoch, onEpochChange])
@@ -115,7 +115,7 @@ export default function EpochPagination({
           variant="outlined"
           size="sm"
           onClick={handleNext}
-          disabled={currentEpoch >= latestEpoch || isLoading}
+          disabled={currentEpoch >= latestEpoch - 1 || isLoading}
           className="w-auto"
         >
           Next →
