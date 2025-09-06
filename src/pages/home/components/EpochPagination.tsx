@@ -1,5 +1,5 @@
 import type React from 'react'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { Button } from '@app/components/ui/buttons'
 import { TextInput } from '@app/components/ui/inputs'
@@ -18,6 +18,10 @@ export default function EpochPagination({
   isLoading = false
 }: EpochPaginationProps) {
   const [inputValue, setInputValue] = useState(currentEpoch.toString())
+
+  useEffect(() => {
+    setInputValue(currentEpoch.toString())
+  }, [currentEpoch])
   const [inputError, setInputError] = useState<string>()
 
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,8 +87,7 @@ export default function EpochPagination({
         </Button>
 
         <div className="flex items-center gap-8">
-          <span className="text-sm text-gray-50">Epoch:</span>
-          <div className="w-20">
+          <div className="w-32">
             <TextInput
               type="number"
               value={inputValue}
@@ -94,6 +97,7 @@ export default function EpochPagination({
               error={inputError}
               disabled={isLoading}
               className="text-center"
+              placeholder="Epoch"
             />
           </div>
           <Button
