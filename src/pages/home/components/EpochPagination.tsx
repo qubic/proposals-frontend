@@ -51,7 +51,7 @@ export default function EpochPagination({
 
     setInputError(undefined)
     onEpochChange(epoch)
-  }, [inputValue, latestEpoch, onEpochChange])
+  }, [inputValue, latestEpoch, onEpochChange, t])
 
   const handleKeyPress = useCallback(
     (e: React.KeyboardEvent) => {
