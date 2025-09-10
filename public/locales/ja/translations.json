@@ -96,5 +96,15 @@
     "scan_qr": "このQRコードをQubicウォレットでスキャンするか、以下のリンクをコピーしてください：",
     "wallet_connection_gen_url_error": "WalletConnect URIの生成に失敗しました。再試行してください。",
     "metamask_cooming_soon": "MetaMask（近日公開）"
+  },
+  "epoch_pagination": {
+    "previous": "← 前へ",
+    "next": "次へ →",
+    "error_invalid_epoch": "有効なエポック番号を入力してください",
+    "error_negative_epoch": "エポックは負の値にできません",
+    "error_epoch_too_high": "エポックは {{max}} より大きくできません",
+    "placeholder_epoch": "エポック",
+    "go": "移動",
+    "showing_epoch": "エポック {{current}} / {{latest}} を表示中"
   }
 }

@@ -1,8 +1,8 @@
-import type React from 'react'
-import { useCallback, useEffect, useState } from 'react'
-
 import { Button } from '@app/components/ui/buttons'
 import { TextInput } from '@app/components/ui/inputs'
+import type React from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface EpochPaginationProps {
   currentEpoch: number
@@ -18,6 +18,7 @@ export default function EpochPagination({
   isLoading = false
 }: EpochPaginationProps) {
   const [inputValue, setInputValue] = useState(currentEpoch.toString())
+  const { t } = useTranslation()
 
   useEffect(() => {
     setInputValue(currentEpoch.toString())
@@ -34,17 +35,17 @@ export default function EpochPagination({
     const epoch = parseInt(inputValue, 10)
 
     if (Number.isNaN(epoch)) {
-      setInputError('Please enter a valid epoch number')
+      setInputError(t('epoch_pagination.error_invalid_epoch'))
       return
     }
 
     if (epoch < 0) {
-      setInputError('Epoch cannot be negative')
+      setInputError(t('epoch_pagination.error_negative_epoch'))
       return
     }
 
     if (epoch > latestEpoch - 1) {
-      setInputError(`Epoch cannot be greater than ${latestEpoch - 1}`)
+      setInputError(t('epoch_pagination.error_epoch_too_high', { max: latestEpoch - 1 }))
       return
     }
 
@@ -83,11 +84,11 @@ export default function EpochPagination({
           disabled={currentEpoch <= 0 || isLoading}
           className="w-auto"
         >
-          ← Previous
+          {t('epoch_pagination.previous')}
         </Button>
 
         <div className="flex items-center gap-8">
-          <div className="min-w-[70px] max-w-[80px]">
+          <div className="min-w-[70px] max-w-[90px]">
             <TextInput
               type="number"
               value={inputValue}
@@ -97,7 +98,7 @@ export default function EpochPagination({
               error={inputError}
               disabled={isLoading}
               className="text-center"
-              placeholder="Epoch"
+              placeholder={t('epoch_pagination.placeholder_epoch')}
             />
           </div>
           <Button
@@ -107,7 +108,7 @@ export default function EpochPagination({
             disabled={isLoading}
             className="w-auto"
           >
-            Go
+            {t('epoch_pagination.go')}
           </Button>
         </div>
 
@@ -118,12 +119,15 @@ export default function EpochPagination({
           disabled={currentEpoch >= latestEpoch - 1 || isLoading}
           className="w-auto"
         >
-          Next →
+          {t('epoch_pagination.next')}
         </Button>
       </div>
 
       <div className="text-sm text-gray-50">
-        Showing epoch {currentEpoch} of {latestEpoch}
+        {t('epoch_pagination.showing_epoch', {
+          current: currentEpoch,
+          latest: latestEpoch
+        })}
       </div>
     </div>
   )

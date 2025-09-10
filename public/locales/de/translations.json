@@ -98,5 +98,15 @@
     "scan_qr": "Scannen Sie diesen QR-Code mit Ihrer Qubic Wallet oder kopieren Sie den unten stehenden Link:",
     "wallet_connection_gen_url_error": "Fehler beim Generieren der WalletConnect-URI. Bitte versuchen Sie es erneut.",
     "metamask_cooming_soon": "MetaMask (kommt bald)"
+  },
+  "epoch_pagination": {
+    "previous": "← Zurück",
+    "next": "Weiter →",
+    "error_invalid_epoch": "Bitte geben Sie eine gültige Epoch-Nummer ein",
+    "error_negative_epoch": "Die Epoche darf nicht negativ sein",
+    "error_epoch_too_high": "Die Epoche darf nicht größer als {{max}} sein",
+    "placeholder_epoch": "Epoche",
+    "go": "Los",
+    "showing_epoch": "Zeige Epoche {{current}} von {{latest}}"
   }
 }

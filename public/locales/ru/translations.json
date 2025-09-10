@@ -96,5 +96,15 @@
     "scan_qr": "Сканируйте этот QR-код с помощью вашего кошелька Qubic или скопируйте ссылку ниже:",
     "wallet_connection_gen_url_error": "Не удалось сгенерировать URI WalletConnect. Попробуйте ещё раз.",
     "metamask_cooming_soon": "MetaMask (скоро)"
+  },
+  "epoch_pagination": {
+    "previous": "← Предыдущий",
+    "next": "Следующий →",
+    "error_invalid_epoch": "Пожалуйста, введите допустимый номер эпохи",
+    "error_negative_epoch": "Эпоха не может быть отрицательной",
+    "error_epoch_too_high": "Эпоха не может быть больше {{max}}",
+    "placeholder_epoch": "Эпоха",
+    "go": "Перейти",
+    "showing_epoch": "Показ эпохи {{current}} из {{latest}}"
   }
 }
