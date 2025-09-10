@@ -96,5 +96,15 @@
     "scan_qr": "امسح رمز الاستجابة السريعة هذا باستخدام محفظة Qubic الخاصة بك أو انسخ الرابط أدناه:",
     "wallet_connection_gen_url_error": "فشل في إنشاء رابط WalletConnect. يرجى المحاولة لاحقًا.",
     "metamask_cooming_soon": "MetaMask (قريبًا)"
+  },
+  "epoch_pagination": {
+    "previous": "← السابق",
+    "next": "التالي →",
+    "error_invalid_epoch": "الرجاء إدخال رقم عصر صالح",
+    "error_negative_epoch": "لا يمكن أن يكون العصر سالباً",
+    "error_epoch_too_high": "لا يمكن أن يكون العصر أكبر من {{max}}",
+    "placeholder_epoch": "العصر",
+    "go": "انطلق",
+    "showing_epoch": "عرض العصر {{current}} من {{latest}}"
   }
 }

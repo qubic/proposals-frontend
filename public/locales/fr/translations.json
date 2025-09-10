@@ -98,5 +98,15 @@
     "scan_qr": "Scannez ce code QR avec votre portefeuille Qubic ou copiez le lien ci-dessous :",
     "wallet_connection_gen_url_error": "Échec de la génération de l'URI WalletConnect. Veuillez réessayer.",
     "metamask_cooming_soon": "MetaMask (bientôt disponible)"
+  },
+  "epoch_pagination": {
+    "previous": "← Précédent",
+    "next": "Suivant →",
+    "error_invalid_epoch": "Veuillez entrer un numéro d'époque valide",
+    "error_negative_epoch": "L'époque ne peut pas être négative",
+    "error_epoch_too_high": "L'époque ne peut pas être supérieure à {{max}}",
+    "placeholder_epoch": "Époque",
+    "go": "Aller",
+    "showing_epoch": "Affichage de l'époque {{current}} sur {{latest}}"
   }
 }
