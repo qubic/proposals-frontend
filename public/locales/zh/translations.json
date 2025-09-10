@@ -96,5 +96,15 @@
     "scan_qr": "使用您的Qubic钱包扫描此二维码或复制以下链接：",
     "wallet_connection_gen_url_error": "生成WalletConnect URI失败。请重试。",
     "metamask_cooming_soon": "MetaMask（即将推出）"
+  },
+  "epoch_pagination": {
+    "previous": "← 上一頁",
+    "next": "下一頁 →",
+    "error_invalid_epoch": "請輸入有效的紀元號",
+    "error_negative_epoch": "紀元不能為負數",
+    "error_epoch_too_high": "紀元不能大於 {{max}}",
+    "placeholder_epoch": "紀元",
+    "go": "前往",
+    "showing_epoch": "顯示第 {{current}} 個紀元，共 {{latest}} 個"
   }
 }

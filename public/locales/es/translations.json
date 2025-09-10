@@ -98,5 +98,15 @@
     "scan_qr": "Escanea este código QR con tu billetera Qubic o copia el enlace a continuación:",
     "wallet_connection_gen_url_error": "No se pudo generar el URI de WalletConnect. Por favor, inténtalo de nuevo.",
     "metamask_cooming_soon": "MetaMask (próximamente)"
+  },
+  "epoch_pagination": {
+    "previous": "← Anterior",
+    "next": "Siguiente →",
+    "error_invalid_epoch": "Por favor, ingrese un número de época válido",
+    "error_negative_epoch": "La época no puede ser negativa",
+    "error_epoch_too_high": "La época no puede ser mayor que {{max}}",
+    "placeholder_epoch": "Época",
+    "go": "Ir",
+    "showing_epoch": "Mostrando época {{current}} de {{latest}}"
   }
 }

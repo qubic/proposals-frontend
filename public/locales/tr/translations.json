@@ -96,5 +96,15 @@
     "scan_qr": "Bu QR kodunu Qubic Cüzdanınızla tarayın veya aşağıdaki bağlantıyı kopyalayın:",
     "wallet_connection_gen_url_error": "WalletConnect URI'si oluşturulamadı. Lütfen tekrar deneyin.",
     "metamask_cooming_soon": "MetaMask (çok yakında)"
+  },
+  "epoch_pagination": {
+    "previous": "← Önceki",
+    "next": "Sonraki →",
+    "error_invalid_epoch": "Lütfen geçerli bir epoch numarası girin",
+    "error_negative_epoch": "Epoch negatif olamaz",
+    "error_epoch_too_high": "Epoch {{max}}'dan büyük olamaz",
+    "placeholder_epoch": "Epoch",
+    "go": "Git",
+    "showing_epoch": "{{latest}} içinde {{current}} epoch gösteriliyor"
   }
 }
