@@ -1,3 +1,10 @@
+# [1.6.0-rc.1](https://github.com/qubic/proposals-frontend/compare/v1.5.0...v1.6.0-rc.1) (2025-09-10)
+
+
+### Features
+
+* Epoch-Based Pagination to Ended Proposals ([#41](https://github.com/qubic/proposals-frontend/issues/41)) ([1d1952b](https://github.com/qubic/proposals-frontend/commit/1d1952b41acafbb9765c4cc15a1f0207181d9605))
+
 # [1.5.0](https://github.com/qubic/proposals-frontend/compare/v1.4.0...v1.5.0) (2025-09-06)
 
 
