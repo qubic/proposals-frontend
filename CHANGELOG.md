@@ -1,3 +1,13 @@
+# [1.6.0-rc.2](https://github.com/qubic/proposals-frontend/compare/v1.6.0-rc.1...v1.6.0-rc.2) (2025-09-10)
+
+
+### Bug Fixes
+
+* dev proxy config for rpc added ([34b7dfc](https://github.com/qubic/proposals-frontend/commit/34b7dfc151ee757cf49fbabc4f28b641f4b01a46))
+* **lint:** add missing 't' dependency to useCallback ([874bb19](https://github.com/qubic/proposals-frontend/commit/874bb19002168573e26f5dcbca585329578ca25e))
+* translations added to epoch pagination ([3c1ddb0](https://github.com/qubic/proposals-frontend/commit/3c1ddb0fd41e26d4d2f3526b24d6e4cc2ae3549e))
+* wrap long proposal titles ([3e4891f](https://github.com/qubic/proposals-frontend/commit/3e4891fdaaf076fff62bc93613c4fba4e64dd6ec))
+
 # [1.6.0-rc.1](https://github.com/qubic/proposals-frontend/compare/v1.5.0...v1.6.0-rc.1) (2025-09-10)
 
 
