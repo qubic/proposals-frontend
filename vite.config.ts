@@ -3,7 +3,7 @@ import path from 'path'
 import type { UserConfig } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import svgr from 'vite-plugin-svgr'
-import { qliApiProxy } from './dev-proxy.config'
+import { archiverApiProxy, qliApiProxy } from './dev-proxy.config'
 
 const defaultConfig: UserConfig = {
   plugins: [react(), svgr()],
@@ -27,7 +27,8 @@ export default defineConfig(({ command, mode }) => {
       ...defaultConfig,
       server: {
         proxy: {
-          '/dev-proxy-qli-api': qliApiProxy
+          '/dev-proxy-qli-api': qliApiProxy,
+          '/dev-proxy-archiver-api': archiverApiProxy
         }
       }
     }

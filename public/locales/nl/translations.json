@@ -96,5 +96,15 @@
     "scan_qr": "Scan deze QR-code met uw Qubic Wallet of kopieer de onderstaande link:",
     "wallet_connection_gen_url_error": "Kan WalletConnect-URI niet genereren. Probeer het opnieuw.",
     "metamask_cooming_soon": "MetaMask (binnenkort beschikbaar)"
+  },
+  "epoch_pagination": {
+    "previous": "← Vorige",
+    "next": "Volgende →",
+    "error_invalid_epoch": "Voer een geldig epochnummer in",
+    "error_negative_epoch": "Epoch kan niet negatief zijn",
+    "error_epoch_too_high": "Epoch mag niet groter zijn dan {{max}}",
+    "placeholder_epoch": "Epoch",
+    "go": "Ga",
+    "showing_epoch": "Epoch {{current}} van {{latest}} wordt getoond"
   }
 }
